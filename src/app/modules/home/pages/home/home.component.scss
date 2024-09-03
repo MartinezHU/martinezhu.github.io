@@ -1,0 +1,100 @@
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  overflow: hidden;
+}
+
+video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  object-fit: cover;
+}
+
+.content {
+  position: relative;
+  z-index: 2; /* Esto hace que el contenido esté por encima del video */
+  color: white;
+  text-align: center;
+}
+
+/* Menú fijo con visibilidad siempre activa en pantallas grandes */
+.menu-fijo {
+  position: fixed; /* Fijo en la pantalla */
+  top: 0; /* En la parte superior */
+  left: 0; /* Alineado a la izquierda */
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+  padding: 10px;
+  z-index: 4; /* Asegúrate de que esté encima de otros elementos */
+  display: none; /* Oculto por defecto en móviles */
+  height: auto; /* Ajusta la altura según el contenido */
+}
+
+.menu-fijo.open {
+  display: block; /* Se muestra cuando isMenuOpen es true */
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: row; /* Alinea los enlaces horizontalmente en pantallas grandes */
+  justify-content: center; /* Centra los enlaces horizontalmente */
+  width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+}
+
+.menu-items a.btn {
+  padding: 10px 20px; /* Ajusta el padding para botones en pantallas grandes */
+  font-size: 18px; /* Ajusta el tamaño del texto si es necesario */
+  text-align: center; /* Centra el texto dentro de los botones */
+  border-radius: 5px; /* Opcional, ajusta según el diseño */
+  margin: 0 5px; /* Espacio entre los botones */
+}
+
+@media (max-width: 768px) {
+  .menu-items {
+    display: flex;
+    flex-direction: column; /* Alinea los enlaces verticalmente en pantallas móviles */
+    align-items: center; /* Centra los enlaces horizontalmente */
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+  }
+
+  .menu-items a.btn {
+    min-width: 150px; /* Ancho mínimo para botones */
+    padding: 12px 20px; /* Ajusta el padding para botones en móviles */
+    font-size: 18px; /* Ajusta el tamaño del texto */
+    text-align: center; /* Asegura que el texto esté centrado */
+    border-radius: 5px; /* Opcional, ajusta según el diseño */
+    margin-bottom: 10px; /* Espacio entre los botones */
+  }
+
+  .menu-toggle {
+    position: fixed; /* Fijo en la pantalla */
+    top: 10px; /* Ajusta según sea necesario */
+    right: 10px; /* Ajusta según sea necesario */
+    font-size: 2rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    z-index: 5; /* Asegúrate de que el botón esté encima del menú */
+  }
+}
+
+@media (min-width: 768px) {
+  .menu-fijo {
+    display: flex; /* Siempre visible en pantallas grandes */
+    flex-direction: row; /* Alinea los enlaces horizontalmente en pantallas grandes */
+    justify-content: center; /* Centra los enlaces horizontalmente */
+  }
+
+  .menu-toggle {
+    display: none; /* Oculta el botón hamburguesa en pantallas grandes */
+  }
+}

@@ -1,0 +1,184 @@
+<section id="about" class="py-5">
+  <div class="container">
+    <!-- Sección de Iniciales y Biografía -->
+    <section id="about" class="py-5">
+      <div class="container">
+        <div class="about-content">
+          <div class="initials-container">
+            <span class="initials">HM</span>
+          </div>
+          <div class="bio">
+            <h2 class="text-center">Sobre Mí</h2>
+            <p class="lead">
+              ¡Hola! Soy Héctor Martínez, un desarrollador web apasionado por
+              crear soluciones innovadoras y funcionales. Mi carrera comenzó con
+              mis estudios en un grado medio de
+              <strong>Sistemas Microinformáticos y Redes</strong> y un grado
+              superior de <strong>Desarrollo de Aplicaciones Web</strong>, donde
+              me introduje en el mundo de la programación con Java, Python y
+              tecnologías web modernas. Desde entonces, he trabajado en una
+              variedad de proyectos, tanto personales como profesionales, que
+              abarcan desde aplicaciones web y más recientemente aplicaciones
+              móviles.
+            </p>
+            <p>
+              En mi última experiencia profesional, desarrollé aplicaciones web
+              utilizando
+              <strong>Angular</strong> con herramientas como PrimeNG y NgRx.
+              Gestioné bases de datos <strong>SQL Server</strong> y trabajé con
+              <strong>.Net Framework 4.8</strong> para desarrollar backends con
+              autenticación JWT. También tengo experiencia con
+              <strong>Java / JSP</strong> y
+              <strong>Django / Django Rest Framework</strong> para desarrollar
+              aplicaciones web o API's REST.
+            </p>
+            <p>
+              Además, mi interés por la arquitectura de software se refleja en
+              mi comprensión y aplicación de patrones de diseño como
+              <strong>CQRS</strong>, <strong>Patrón Repository</strong>,
+              <strong>SOLID</strong> y <strong>Clean Architecture</strong>.
+              También tengo un sólido conocimiento en <strong>Docker</strong> y
+              <strong>Docker Compose</strong> para la gestión de contenedores y
+              entornos.
+            </p>
+            <p>
+              Actualmente, estoy trabajando en un proyecto personal
+              desarrollando una red social con
+              <strong>Flutter</strong>, donde estoy implementando Riverpod para
+              la gestión de estado y enfrentando el desafío de la autenticación
+              utilizando datos biométricos. Me encanta modularizar proyectos y
+              asegurarme de que sean fáciles de entender y mantener.
+            </p>
+            <p>
+              Mi objetivo es seguir aprendiendo y creciendo en el campo del
+              desarrollo de software, mientras aplico mis conocimientos para
+              resolver problemas reales y contribuir a proyectos innovadores.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Habilidades -->
+    <section id="skills" class="py-5">
+      <div class="container">
+        <h3 class="text-center">Habilidades</h3>
+        <div class="row">
+          <div *ngFor="let skill of skills" class="col-md-6 mb-4">
+            <div class="skill-card text-center">
+              <h4>{{ skill.name }}</h4>
+              <p>{{ skill.level }}</p>
+              <ul class="text-left">
+                <li *ngFor="let tool of skill.tools">{{ tool }}</li>
+              </ul>
+              <div class="progress">
+                <div
+                  class="progress-bar bg-success"
+                  role="progressbar"
+                  [style.width]="skill.percent + '%'"
+                  [attr.aria-valuenow]="skill.percent"
+                  [attr.aria-valuemin]="0"
+                  [attr.aria-valuemax]="100"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Arquitectura de Software y Patrones de Diseño -->
+          <div class="col-md-12 mt-2 mb-4">
+            <div class="skill-card text-center">
+              <h4>Arquitectura de Software y Patrones de Diseño</h4>
+              <p>Intermedio</p>
+              <ul class="text-left">
+                <li>CQRS (Command Query Responsibility Segregation)</li>
+                <li>Patrón Repository</li>
+                <li>SOLID</li>
+                <li>Clean Architecture</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Experiencia -->
+    <section id="experience" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Experiencia</h2>
+        <div class="row">
+          <div class="container">
+            <div class="row">
+              <div
+                *ngFor="let experience of experiences"
+                class="col-md-12 mb-4"
+              >
+                <div class="experience-card">
+                  <h4>{{ experience.title }}</h4>
+                  <h5>{{ experience.company }}</h5>
+                  <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    {{ experience.dir }}
+                  </p>
+                  <ul>
+                    <li *ngFor="let detail of experience.tasks">
+                      {{ detail }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Educación y Certificaciones -->
+    <section id="education" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Educación y Certificaciones</h2>
+
+        <div class="row">
+          <!-- Educación -->
+          <div class="mb-4">
+            <div class="education-card p-4 bg-white shadow-sm">
+              <div class="container">
+                <div class="row">
+                  <div *ngFor="let edu of education" class="col-md-12 mb-4">
+                    <div class="education-card">
+                      <h4>{{ edu.title }}</h4>
+                      <h5>{{ edu.institution }}</h5>
+                      <p>
+                        <i class="fas fa-map-marker-alt"></i> {{ edu.location }}
+                      </p>
+                      <p>
+                        <i class="fas fa-calendar-alt"></i>
+                        {{ formatDate(edu.finish_date) }}
+                      </p>
+                      <p>{{ edu.description }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certificaciones -->
+          <div class="container">
+            <div class="row">
+              <div *ngFor="let cert of certifications" class="col-md-12 mb-4">
+                <div class="certification-card">
+                  <h4>{{ cert.title }}</h4>
+                  <h5>{{ cert.platform }}</h5>
+                  <p>
+                    <i class="fas fa-calendar-alt"></i> Fecha de obtención:
+                    {{ formatDate(cert.date) }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

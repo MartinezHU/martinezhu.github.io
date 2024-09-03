@@ -1,0 +1,45 @@
+#contact {
+  background-color: #f8f9fa;
+}
+
+.contact-info {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.contact-info a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #007bff;
+}
+
+.is-invalid {
+  border-color: #dc3545;
+}
+
+.invalid-feedback {
+  display: block;
+  color: #dc3545;
+}
+
+.toast-container .toast {
+  background-color: #28a745;
+}
+
+.toast-container .toast .btn-close {
+  filter: invert(1);
+}
+
+.toast-body {
+  font-size: 0.875rem;
+}

@@ -1,0 +1,25 @@
+<section id="portfolio" class="py-5 mt-4" id="portfolio">
+  <div class="container">
+    <h2 class="text-center mt-5 mb-4">Mi Portfolio</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let project of projects">
+        <div class="card shadow-sm">
+          <img
+            [src]="project.imageUrl"
+            class="card-img-top"
+            alt="{{ project.name }}"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ project.name }}</h5>
+            <p class="card-text">
+              {{ project.description || "Sin descripción disponible." }}
+            </p>
+            <a [href]="project.html_url" target="_blank" class="btn btn-primary"
+              >Ver en GitHub</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
