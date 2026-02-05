@@ -1,0 +1,201 @@
+<!-- Breadcrumb -->
+<nav class="breadcrumb section pb-0" aria-label="breadcrumbs">
+  <div class="container">
+    <ul>
+      <li><a routerLink="/" class="breadcrumb-link">Inicio</a></li>
+      <li class="is-active"><span>Sobre mí</span></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Sección Bio Personal -->
+<section class="section bio-section">
+  <div class="container">
+    <div class="columns is-vcentered">
+      <div class="column is-4 has-text-centered">
+        <figure class="image is-256x256 is-inline-block">
+          <img
+            class="is-rounded"
+            src="https://via.placeholder.com/256"
+            alt="Foto de perfil"
+          />
+        </figure>
+      </div>
+      <div class="column is-8">
+        <h1 class="title is-2 has-text-weight-bold has-text-white">
+          ¡Hola! Soy <span class="has-text-primary">Héctor</span>
+        </h1>
+        <p class="content is-size-5 has-text-grey-light">
+          <strong>[Placeholder Bio]</strong> - Desarrollador apasionado por crear experiencias
+          digitales increíbles. Me especializo en desarrollo frontend con Angular y tecnologías
+          modernas. Siempre buscando aprender nuevas tecnologías y enfrentar desafíos innovadores.
+        </p>
+        <div class="content">
+          <h3 class="subtitle is-5 has-text-weight-semibold has-text-white">💡 Lo que me apasiona:</h3>
+          <ul>
+            <li>🚀 Desarrollo de aplicaciones web y móviles</li>
+            <li>🎨 Diseño de interfaces intuitivas y elegantes</li>
+            <li>🧠 Resolver problemas complejos con código limpio</li>
+            <li>📚 Aprendizaje continuo y compartir conocimientos</li>
+          </ul>
+        </div>
+        <div class="content">
+          <h3 class="subtitle is-5 has-text-weight-semibold has-text-white">🎮 Hobbies & Intereses:</h3>
+          <div class="tags">
+            <span class="tag is-medium">Videojuegos</span>
+            <span class="tag is-medium">Tecnología</span>
+            <span class="tag is-medium">Open Source</span>
+            <span class="tag is-medium">Fotografía</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- Sección Stack Tecnológico -->
+<section class="section tech-stack-section">
+  <div class="container">
+    <h2 class="title is-3 has-text-centered mb-6">
+      Mi <span class="has-text-primary">Stack</span> Tecnológico
+    </h2>
+
+    <div class="columns is-multiline">
+      <!-- Frontend -->
+      <div class="column is-6">
+        <div class="box tech-category-box">
+          <h3 class="subtitle is-4 has-text-weight-semibold mb-4">
+            <span class="icon-text">
+              <span class="icon has-text-primary">
+                <i class="fas fa-laptop-code"></i>
+              </span>
+              <span>Frontend</span>
+            </span>
+          </h3>
+          <div class="tags">
+            <span class="tag is-medium is-light" *ngFor="let skill of getCategorySkills('frontend')">
+              {{ skill.name }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Backend -->
+      <div class="column is-6">
+        <div class="box tech-category-box">
+          <h3 class="subtitle is-4 has-text-weight-semibold mb-4">
+            <span class="icon-text">
+              <span class="icon has-text-primary">
+                <span class="icon has-text-primary">
+                  <i class="fas fa-server"></i>
+                </span>
+              </span>
+              <span>Backend</span>
+            </span>
+          </h3>
+          <div class="tags">
+            <span class="tag is-medium is-light" *ngFor="let skill of getCategorySkills('backend')">
+              {{ skill.name }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile -->
+      <div class="column is-6">
+        <div class="box tech-category-box">
+          <h3 class="subtitle is-4 has-text-weight-semibold mb-4">
+            <span class="icon-text">
+              <span class="icon has-text-primary">
+                <i class="fas fa-mobile-alt"></i>
+              </span>
+              <span>Mobile</span>
+            </span>
+          </h3>
+          <div class="tags">
+            <span class="tag is-medium is-light" *ngFor="let skill of getCategorySkills('mobile')">
+              {{ skill.name }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools & Others -->
+      <div class="column is-6">
+        <div class="box tech-category-box">
+          <h3 class="subtitle is-4 has-text-weight-semibold mb-4">
+            <span class="icon-text">
+              <span class="icon has-text-primary">
+                <i class="fas fa-tools"></i>
+              </span>
+              <span>Tools & Others</span>
+            </span>
+          </h3>
+          <div class="tags">
+            <span class="tag is-medium is-light" *ngFor="let skill of getCategorySkills('tools')">
+              {{ skill.name }}
+            </span>
+            <span class="tag is-medium is-light">Git</span>
+            <span class="tag is-medium is-light">Docker</span>
+            <span class="tag is-medium is-light">VS Code</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- Sección Formación -->
+<section class="section education-section">
+  <div class="container">
+    <h2 class="title is-3 has-text-centered mb-6">
+      <span class="has-text-primary">Formación</span> Académica
+    </h2>
+
+    <div class="timeline">
+      <div class="timeline-item" *ngFor="let edu of education">
+        <div class="timeline-marker" [class.is-primary]="edu.type === 'degree'"></div>
+        <div class="timeline-content">
+          <div class="box education-box">
+            <div class="level is-mobile">
+              <div class="level-left">
+                <div class="level-item">
+                  <span
+                    class="icon is-large"
+                    [class.has-text-primary]="edu.type === 'degree'"
+                    [class.has-text-info]="edu.type === 'certification'"
+                  >
+                    <i
+                      class="fas fa-2x"
+                      [class.fa-graduation-cap]="edu.type === 'degree'"
+                      [class.fa-certificate]="edu.type === 'certification'"
+                      [class.fa-book]="edu.type === 'course'"
+                    ></i>
+                  </span>
+                </div>
+              </div>
+              <div class="level-right">
+                <div class="level-item">
+                  <span class="tag is-medium">{{ edu.year }}</span>
+                </div>
+              </div>
+            </div>
+            <h3 class="subtitle is-5 has-text-weight-semibold mb-2">{{ edu.title }}</h3>
+            <p class="has-text-grey">{{ edu.institution }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="has-text-centered mt-6">
+      <p class="content is-size-6 has-text-grey">
+        <strong>[Placeholder]</strong> - Esta lista se actualizará con toda mi formación completa,
+        incluyendo certificaciones, cursos y talleres relevantes.
+      </p>
+    </div>
+  </div>
+</section>

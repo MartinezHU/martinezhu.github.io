@@ -1,0 +1,22 @@
+<section
+  class="hero is-fullheight-with-navbar hero-background"
+  style="position: relative; overflow: hidden"
+>
+  <!-- Líneas de código aleatorias -->
+  <div
+    *ngFor="let line of codeLines"
+    class="code-line"
+    [ngStyle]="{ top: line.top, left: line.left, animationDelay: line.delay }"
+  >
+    {{ line.text }}
+  </div>
+
+  <div class="hero-body">
+    <div class="container content has-text-centered">
+      <h1 class="title is-2-mobile is-1-tablet has-text-white">Héctor Martínez</h1>
+      <h2 class="subtitle is-4-mobile is-3-tablet has-text-white">Web & Mobile Developer</h2>
+      <button class="button-49 is-medium m-5">Contrátame</button>
+      <button class="button-49 is-medium m-5">Ver CV</button>
+    </div>
+  </div>
+</section>

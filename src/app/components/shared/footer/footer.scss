@@ -1,3 +1,19 @@
+@use '../../../../styles/variables' as *;
+
+.footer {
+  background-color: $black-soft;
+  border-top: 2px solid $grey-anthracite;
+  padding: 3rem 1.5rem;
+  
+  .icon {
+    transition: color 0.3s ease;
+    
+    &:hover {
+      color: $red-elegant !important;
+    }
+  }
+}
+
 .logo {
   width: 180px;
   height: 60px;

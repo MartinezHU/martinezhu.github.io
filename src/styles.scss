@@ -13,6 +13,15 @@
     font-family: $family-sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $grey-carbon;
+    color: $white-pure;
+}
+
 // --- Hero oscuro elegante ---
 .hero.is-dark-elegant {
     background-color: $grey-carbon;

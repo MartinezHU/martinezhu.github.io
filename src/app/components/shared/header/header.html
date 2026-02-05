@@ -1,58 +1,28 @@
-<header class="hero-container">
-  <!-- Navbar -->
-  <nav class="navbar is-fixed-top has-shadow" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
+<nav class="navbar is-fixed-top has-shadow" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item logo" href="#"> </a>
 
-
-      <a class="navbar-item logo" href="#"> </a>
-
-
-      <!-- Burger visible en móvil -->
-      <a
-        role="button"
-        class="navbar-burger"
-        aria-label="menu"
-        aria-expanded="false"
-        data-target="navbarMenu"
-      >
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-
-    <div id="navbarMenu" class="navbar-menu">
-      <div class="navbar-end">
-        <a class="button-48 navbar-item" href="#about">Inicio</a>
-        <a class="button-48 navbar-item" href="#about">Sobre mi</a>
-        <a class="button-48 navbar-item" href="#about">Habilidades</a>
-        <a class="button-48 navbar-item" href="#portfolio">Portfolio</a>
-        <a class="button-48 navbar-item" href="#contact">Contacto</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section
-    class="hero is-fullheight-with-navbar hero-background"
-    style="position: relative; overflow: hidden"
-  >
-    <!-- Líneas de código aleatorias -->
-    <div
-      *ngFor="let line of codeLines"
-      class="code-line"
-      [ngStyle]="{ top: line.top, left: line.left, animationDelay: line.delay }"
+    <!-- Burger visible en móvil -->
+    <a
+      role="button"
+      class="navbar-burger"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="navbarMenu"
     >
-      {{ line.text }}
-    </div>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
 
-    <div class="hero-body">
-      <div class="container content has-text-centered">
-        <h1 class="title is-2-mobile is-1-tablet has-text-white">Héctor Martínez</h1>
-        <h2 class="subtitle is-4-mobile is-3-tablet has-text-white">Web & Mobile Developer</h2>
-        <button class="button-49 is-medium m-5">Contrátame</button>
-        <button class="button-49 is-medium m-5">Ver CV</button>
-      </div>
+  <div id="navbarMenu" class="navbar-menu">
+    <div class="navbar-end">
+      <a class="button-48 navbar-item" href="#top">Inicio</a>
+      <a class="button-48 navbar-item" href="#about-me">Sobre mi</a>
+      <a class="button-48 navbar-item" href="#skills">Habilidades</a>
+      <a class="button-48 navbar-item" href="#projects">Proyectos</a>
+      <a class="button-48 navbar-item" href="#contact">Contacto</a>
     </div>
-  </section>
-</header>
+  </div>
+</nav>
