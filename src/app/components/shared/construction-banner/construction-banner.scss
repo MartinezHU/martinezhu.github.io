@@ -7,7 +7,13 @@
   font-size: 0.875rem;
   animation: slideDown 0.3s ease-out;
   width: 100%;
+<<<<<<< HEAD
   margin-top: 3.25rem;
+=======
+  position: sticky;
+  top: 61px;
+  z-index: 20;
+>>>>>>> 220becc608d90fd28e7a2d337236762eeb0a7f92
 
   @keyframes slideDown {
     from {
@@ -62,6 +68,10 @@
     }
   }
 
+<<<<<<< HEAD
+=======
+  /* Responsive */
+>>>>>>> 220becc608d90fd28e7a2d337236762eeb0a7f92
   @media (max-width: 640px) {
     padding: 0.5rem 0.75rem;
 
@@ -77,4 +87,8 @@
       }
     }
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 220becc608d90fd28e7a2d337236762eeb0a7f92
