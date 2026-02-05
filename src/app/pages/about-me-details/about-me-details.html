@@ -200,10 +200,9 @@
                 </div>
               </div>
             </div>
-            <h3 class="subtitle is-5 has-text-weight-semibold mb-2">{{ edu.title }}</h3>
-            <p class="is-size-7 has-text-grey mb-1" *ngIf="edu.titleEn">{{ edu.titleEn }}</p>
+            <h3 class="subtitle is-5 has-text-weight-semibold mb-2">{{ getEducationTitle(edu) }}</h3>
             <p class="has-text-grey">{{ edu.institution }}</p>
-            <p class="has-text-grey-light is-size-7" *ngIf="edu.description">{{ edu.description }}</p>
+            <p class="has-text-grey-light is-size-7" *ngIf="getEducationDescription(edu)">{{ getEducationDescription(edu) }}</p>
           </div>
         </div>
       </div>
@@ -238,8 +237,7 @@
               </div>
             </div>
           </div>
-          <h3 class="subtitle is-5 has-text-weight-semibold mb-2">{{ cert.title }}</h3>
-          <p class="is-size-7 has-text-grey mb-2" *ngIf="cert.titleEn">{{ cert.titleEn }}</p>
+          <h3 class="subtitle is-5 has-text-weight-semibold mb-2">{{ getCertificationTitle(cert) }}</h3>
           <p class="has-text-grey mb-2">{{ cert.issuer }}</p>
           <div class="is-size-7 has-text-grey-light mb-3">
             <p>

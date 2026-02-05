@@ -47,8 +47,29 @@ export class AboutMeDetails implements OnInit {
   /**
    * Obtener el nivel traducido
    */
-  getTranslatedLevel(level: string): string {
-    return this.translatedLevelMap[level] || level;
+  getTranslatedLevel(level: string | undefined): string {
+    return level ? this.translatedLevelMap[level] || level : '';
+  }
+
+  /**
+   * Obtener título de educación según idioma actual
+   */
+  getEducationTitle(edu: Education): string {
+    return this.currentLanguage === 'es' ? edu.title : (edu.titleEn || edu.title);
+  }
+
+  /**
+   * Obtener descripción de educación según idioma actual
+   */
+  getEducationDescription(edu: Education): string | undefined {
+    return this.currentLanguage === 'es' ? edu.description : edu.descriptionEn;
+  }
+
+  /**
+   * Obtener título de certificación según idioma actual
+   */
+  getCertificationTitle(cert: Certification): string {
+    return this.currentLanguage === 'es' ? cert.title : (cert.titleEn || cert.title);
   }
 
   // Stack de tecnologías - reemplazar con datos reales
