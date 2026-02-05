@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Router, NavigationEnd, ChildrenOutletContexts } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { Header } from "./components/shared/header/header";
 import { Footer } from "./components/shared/footer/footer";
+import { ConstructionBanner } from "./components/shared/construction-banner/construction-banner";
+import { FEATURE_FLAGS } from './config/feature-flags';
 import { I18nService } from './services/i18n.service';
 import { filter } from 'rxjs';
 import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Footer],
+  imports: [CommonModule, RouterOutlet, Header, Footer, ConstructionBanner],
   templateUrl: './app.html',
   styleUrl: './app.scss',
   animations: [
@@ -23,6 +26,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
 })
 export class App implements OnInit {
   protected readonly title = 'web-personal';
+  protected readonly showConstructionBanner = FEATURE_FLAGS.showConstructionBanner;
 
   constructor(
     private i18nService: I18nService,

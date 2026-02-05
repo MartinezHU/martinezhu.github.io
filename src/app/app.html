@@ -3,6 +3,7 @@
     <app-header></app-header>
   </header>
   <main>
+    <app-construction-banner *ngIf="showConstructionBanner"></app-construction-banner>
     <div class="route-container" [@routeAnimations]="getRouteAnimationData()">
       <router-outlet></router-outlet>
     </div>

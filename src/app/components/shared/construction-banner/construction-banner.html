@@ -1,0 +1,14 @@
+<div class="construction-banner" *ngIf="isVisible">
+  <div class="banner-content">
+    <span class="banner-icon">🚧</span>
+    <span class="banner-text">{{ 'common.constructionBanner' | translate }}</span>
+    <button
+      class="banner-close"
+      type="button"
+      (click)="closeBanner()"
+      aria-label="{{ 'common.close' | translate }}"
+    >
+      ✕
+    </button>
+  </div>
+</div>

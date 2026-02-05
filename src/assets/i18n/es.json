@@ -2,7 +2,9 @@
   "common": {
     "language": "Idioma",
     "spanish": "Español",
-    "english": "English"
+    "english": "English",
+    "constructionBanner": "Web en construcción",
+    "close": "Cerrar"
   },
   "about": {
     "greeting": "¡Hola! Soy",

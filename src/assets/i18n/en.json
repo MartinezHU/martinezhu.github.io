@@ -2,7 +2,9 @@
   "common": {
     "language": "Language",
     "spanish": "Español",
-    "english": "English"
+    "english": "English",
+    "constructionBanner": "Website under construction",
+    "close": "Close"
   },
   "about": {
     "greeting": "Hello! I'm",
