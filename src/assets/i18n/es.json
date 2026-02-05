@@ -33,5 +33,25 @@
   "breadcrumb": {
     "home": "Inicio",
     "about": "Sobre mí"
+  },
+  "header": {
+    "nav": {
+      "home": "Inicio",
+      "about": "Sobre mí",
+      "skills": "Habilidades",
+      "projects": "Proyectos",
+      "contact": "Contacto"
+    }
+  },
+  "home": {
+    "aboutTitlePrefix": "Sobre",
+    "aboutTitleHighlight": "mí",
+    "aboutText1": "Soy un desarrollador apasionado por crear experiencias digitales excepcionales. Con experiencia en desarrollo web y móvil, me especializo en tecnologías modernas como Angular, React y más.",
+    "aboutText2": "Me encanta resolver problemas complejos, aprender nuevas tecnologías y trabajar en proyectos que marquen la diferencia. Siempre en búsqueda de nuevos desafíos y oportunidades para crecer profesionalmente.",
+    "aboutCta": "Conocer más sobre mí"
+  },
+  "footer": {
+    "role": "Desarrollador Web & Móvil",
+    "rights": "© 2025 Héctor Dev. Todos los derechos reservados."
   }
 }

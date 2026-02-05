@@ -16,23 +16,20 @@
       </div>
       <div class="column is-7">
         <h2 class="title is-2 has-text-weight-bold mb-4">
-          Sobre <span class="has-text-primary">mí</span>
+          {{ 'home.aboutTitlePrefix' | translate }}
+          <span class="has-text-primary">{{ 'home.aboutTitleHighlight' | translate }}</span>
         </h2>
         <p class="content is-size-5 has-text-grey-dark mb-5">
-          <strong>[Placeholder]</strong> - Soy un desarrollador apasionado por crear experiencias
-          digitales excepcionales. Con experiencia en desarrollo web y móvil, me especializo en
-          tecnologías modernas como Angular, React y más.
+          {{ 'home.aboutText1' | translate }}
         </p>
         <p class="content is-size-6 has-text-grey mb-5">
-          Me encanta resolver problemas complejos, aprender nuevas tecnologías y trabajar en
-          proyectos que marquen la diferencia. Siempre en búsqueda de nuevos desafíos y
-          oportunidades para crecer profesionalmente.
+          {{ 'home.aboutText2' | translate }}
         </p>
         <a routerLink="/about-me-details" class="button is-primary is-medium">
           <span class="icon">
             <i class="fas fa-user-circle"></i>
           </span>
-          <span>Conocer más sobre mí</span>
+          <span>{{ 'home.aboutCta' | translate }}</span>
         </a>
       </div>
     </div>

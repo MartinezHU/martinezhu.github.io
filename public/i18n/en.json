@@ -33,5 +33,25 @@
   "breadcrumb": {
     "home": "Home",
     "about": "About Me"
+  },
+  "header": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "skills": "Skills",
+      "projects": "Projects",
+      "contact": "Contact"
+    }
+  },
+  "home": {
+    "aboutTitlePrefix": "About",
+    "aboutTitleHighlight": "me",
+    "aboutText1": "I'm a passionate developer focused on creating exceptional digital experiences. With experience in web and mobile development, I specialize in modern technologies like Angular, React, and more.",
+    "aboutText2": "I love solving complex problems, learning new technologies, and working on projects that make a difference. Always looking for new challenges and opportunities to grow professionally.",
+    "aboutCta": "Learn more about me"
+  },
+  "footer": {
+    "role": "Web & Mobile Developer",
+    "rights": "© 2025 Héctor Dev. All rights reserved."
   }
 }
