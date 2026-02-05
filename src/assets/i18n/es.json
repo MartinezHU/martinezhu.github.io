@@ -12,7 +12,12 @@
     "passion2": "Diseño de interfaces intuitivas y elegantes",
     "passion3": "Resolver problemas complejos con código limpio",
     "passion4": "Aprendizaje continuo y compartir conocimientos",
-    "hobbies": "Hobbies & Intereses:"
+    "hobbies": "Hobbies & Intereses:",
+    "hobby1": "Videojuegos",
+    "hobby2": "Tecnología",
+    "hobby3": "Open Source",
+    "hobby4": "Anime/Manga",
+    "hobby5": "Música"
   },
   "stack": {
     "title": "Mi Stack Tecnológico",
@@ -69,7 +74,8 @@
   },
   "breadcrumb": {
     "home": "Inicio",
-    "about": "Sobre mí"
+    "about": "Sobre mí",
+    "projects": "Proyectos"
   },
   "header": {
     "nav": {
@@ -77,6 +83,7 @@
       "about": "Sobre mí",
       "skills": "Habilidades",
       "projects": "Proyectos",
+      "cv": "CV",
       "contact": "Contacto"
     }
   },
@@ -90,5 +97,35 @@
   "footer": {
     "role": "Desarrollador Web & Móvil",
     "rights": "© 2025 Héctor Dev. Todos los derechos reservados."
+  },
+  "projects": {
+    "title": "Mis Proyectos",
+    "subtitle": "Explora mis proyectos y repositorios destacados",
+    "technologies": "Tecnologías",
+    "viewRepo": "Ver Repositorio",
+    "viewDemo": "Ver Demo",
+    "viewDetails": "Ver Detalles",
+    "aboutProject": "Sobre el Proyecto",
+    "projectInfo": "Información del Proyecto",
+    "date": "Fecha",
+    "relatedProjects": "Proyectos Relacionados",
+    "backToProjects": "Volver a Proyectos",
+    "notFound": "Proyecto No Encontrado",
+    "projectNotFoundMessage": "El proyecto que buscas no existe.",
+    "status": {
+      "label": "Estado",
+      "completed": "Completado",
+      "in-progress": "En Progreso",
+      "planned": "Planificado"
+    },
+    "category": {
+      "label": "Categoría",
+      "web": "Web",
+      "mobile": "Mobile",
+      "desktop": "Desktop",
+      "library": "Librería",
+      "tool": "Herramienta",
+      "other": "Otro"
+    }
   }
 }

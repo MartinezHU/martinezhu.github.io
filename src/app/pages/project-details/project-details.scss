@@ -1,0 +1,189 @@
+@use '../../../styles/variables' as *;
+
+:host ::ng-deep .breadcrumb.section {
+  background-color: transparent;
+  padding-top: 6rem !important;
+  padding-bottom: 0 !important;
+  
+  ul {
+    li {
+      a, span {
+        color: $grey-silver;
+        transition: color 0.2s ease;
+        cursor: pointer;
+
+        &:hover {
+          color: $red-elegant;
+        }
+      }
+
+      &.is-active span {
+        color: $white-pure;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.project-details-section {
+  background-color: $grey-carbon;
+  color: $white-pure;
+  padding: 5rem 1.5rem;
+
+  .title,
+  .subtitle {
+    color: $white-pure;
+  }
+
+  .content {
+    color: $white-pure;
+
+    p {
+      line-height: 1.8;
+      font-size: 1.05rem;
+      color: $grey-silver;
+    }
+  }
+
+  .has-text-grey {
+    color: $grey-silver !important;
+  }
+
+  .has-text-grey-light {
+    color: $grey-silver !important;
+  }
+
+  .tag {
+    background-color: $grey-carbon;
+    color: $grey-silver;
+    border: 1px solid $grey-anthracite;
+    transition: all 0.2s ease;
+
+    &.is-light {
+      background-color: $grey-anthracite;
+      color: $white-pure;
+      border: 1px solid $grey-anthracite;
+    }
+
+    &.is-medium {
+      background-color: $grey-anthracite;
+      border-color: $grey-anthracite;
+    }
+
+    &:hover {
+      border-color: $red-elegant;
+      color: $white-pure;
+      background-color: rgba($red-elegant, 0.1);
+    }
+  }
+
+  .button {
+    &.is-light {
+      background-color: rgba($white-pure, 0.1);
+      color: $white-pure;
+      border-color: $grey-anthracite;
+
+      &:hover {
+        background-color: rgba($red-elegant, 0.1);
+        border-color: $red-elegant;
+        color: $red-elegant;
+      }
+    }
+
+    &.is-primary {
+      background-color: transparent;
+      border-color: $red-elegant;
+      color: $red-elegant;
+
+      &:hover {
+        background-color: $red-elegant;
+        color: $white-pure;
+      }
+    }
+  }
+
+  .box {
+    background-color: $grey-anthracite;
+    border: 1px solid $grey-anthracite;
+    transition: all 0.3s ease;
+
+    &.quick-info {
+      p {
+        color: $white-pure;
+      }
+
+      .has-text-grey-light {
+        color: $grey-silver !important;
+      }
+    }
+  }
+
+  .related-projects {
+    .related-project-item {
+      background-color: $grey-anthracite;
+      border: 1px solid $grey-anthracite;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        border-color: $red-elegant;
+        background-color: rgba($red-elegant, 0.05);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba($red-elegant, 0.15);
+
+        .project-link {
+          color: $red-elegant !important;
+        }
+      }
+
+      h4 {
+        color: $white-pure;
+      }
+
+      .project-link {
+        color: $white-pure;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $red-elegant;
+        }
+      }
+
+      p {
+        color: $grey-silver;
+      }
+
+      .button {
+        &.is-light {
+          background-color: $grey-carbon;
+          border-color: $grey-anthracite;
+          color: $grey-silver;
+
+          &:hover {
+            background-color: rgba($red-elegant, 0.1);
+            border-color: $red-elegant;
+            color: $red-elegant;
+          }
+        }
+      }
+    }
+  }
+
+  .divider {
+    border: none;
+    border-top: 2px solid $grey-anthracite;
+    margin: 3rem 0;
+  }
+}
+
+// Responsive
+@media screen and (max-width: 768px) {
+  .project-details-section {
+    padding: 3rem 1.5rem;
+
+    .box.quick-info {
+      position: static;
+    }
+  }
+}

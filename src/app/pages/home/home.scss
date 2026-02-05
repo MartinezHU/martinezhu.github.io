@@ -57,6 +57,102 @@
   }
 }
 
+// Sección Proyectos
+.projects-preview {
+  background-color: $black-soft;
+  color: $white-pure;
+  padding: 5rem 1.5rem;
+
+  .title,
+  .subtitle {
+    color: $white-pure;
+  }
+
+  .has-text-grey {
+    color: $grey-silver !important;
+  }
+
+  .project-card {
+    background-color: $grey-anthracite;
+    border: 1px solid $grey-anthracite;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      border-color: $red-elegant;
+      box-shadow: 0 8px 16px rgba($red-elegant, 0.2);
+      transform: translateY(-4px);
+
+      .title a {
+        color: $red-elegant !important;
+      }
+    }
+
+    .title {
+      flex-grow: 1;
+
+      .project-link {
+        color: $white-pure;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $red-elegant;
+        }
+      }
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+
+      .tag {
+        background-color: $grey-carbon;
+        color: $grey-silver;
+        border: 1px solid $grey-anthracite;
+        transition: all 0.2s ease;
+
+        &:hover {
+          border-color: $red-elegant;
+          color: $white-pure;
+          background-color: rgba($red-elegant, 0.1);
+        }
+      }
+    }
+
+    .button {
+      &.is-light {
+        background-color: rgba($white-pure, 0.1);
+        color: $white-pure;
+        border-color: $grey-anthracite;
+
+        &:hover {
+          background-color: rgba($red-elegant, 0.1);
+          border-color: $red-elegant;
+          color: $red-elegant;
+        }
+      }
+    }
+  }
+
+  .button.is-primary {
+    background-color: $red-elegant;
+    border: none;
+    color: $white-pure;
+    font-weight: 600;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $red-deep;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($red-elegant, 0.4);
+    }
+  }
+}
+
 // Responsive
 @media screen and (max-width: 768px) {
   .about-preview {
@@ -69,5 +165,9 @@
     .profile-image {
       margin-bottom: 2rem;
     }
+  }
+
+  .projects-preview {
+    padding: 3rem 1.5rem;
   }
 }
