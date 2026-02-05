@@ -5,6 +5,7 @@ import { ViewportScroller } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { I18nService } from '../../services/i18n.service';
 import { GitHubService } from '../../services/github.service';
+import { NavigationService } from '../../services/navigation.service';
 import { Project } from '../../models';
 
 @Component({
@@ -17,14 +18,17 @@ export class Projects implements OnInit {
   currentLanguage: string = 'es';
   projects: Project[] = [];
   loading: boolean = true;
+  lastSection: string = 'top';
 
   constructor(
     private viewportScroller: ViewportScroller,
     public i18nService: I18nService,
     private translateService: TranslateService,
-    private githubService: GitHubService
+    private githubService: GitHubService,
+    private navigationService: NavigationService
   ) {
     this.currentLanguage = this.i18nService.getCurrentLanguage();
+    this.lastSection = this.navigationService.getLastSection();
   }
 
   ngOnInit() {

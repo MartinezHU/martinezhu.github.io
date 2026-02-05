@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { I18nService } from '../../services/i18n.service';
+import { NavigationService } from '../../services/navigation.service';
 import { TechStack, TechCategory, Education, EducationType, Certification, CertificationCategory } from '../../models';
 
 @Component({
@@ -15,9 +16,16 @@ import { TechStack, TechCategory, Education, EducationType, Certification, Certi
 export class AboutMeDetails implements OnInit {
   currentLanguage: string = 'es';
   translatedLevelMap: { [key: string]: string } = {};
+  lastSection: string = 'top';
 
-  constructor(private viewportScroller: ViewportScroller, public i18nService: I18nService, private translateService: TranslateService) {
+  constructor(
+    private viewportScroller: ViewportScroller,
+    public i18nService: I18nService,
+    private translateService: TranslateService,
+    private navigationService: NavigationService
+  ) {
     this.currentLanguage = this.i18nService.getCurrentLanguage();
+    this.lastSection = this.navigationService.getLastSection();
   }
 
   ngOnInit() {

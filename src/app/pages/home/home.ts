@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, ActivatedRoute } from '@angular/router';
+import { ViewportScroller } from '@angular/common';
 import { Hero } from '../../components/shared/hero/hero';
 import { TranslateModule } from '@ngx-translate/core';
 import { I18nService } from '../../services/i18n.service';
 import { GitHubService } from '../../services/github.service';
+import { NavigationService } from '../../services/navigation.service';
 import { Project } from '../../models';
 
 @Component({
@@ -19,12 +21,27 @@ export class Home implements OnInit {
 
   constructor(
     public i18nService: I18nService,
-    private githubService: GitHubService
+    private githubService: GitHubService,
+    private navigationService: NavigationService,
+    private route: ActivatedRoute,
+    private viewportScroller: ViewportScroller
   ) {
     this.currentLanguage = this.i18nService.getCurrentLanguage();
   }
 
   ngOnInit() {
+    // Manejar navegación con fragments (ej: /#projects)
+    this.route.fragment.subscribe((fragment) => {
+      if (fragment) {
+        // Usar setTimeout para asegurar que el DOM esté renderizado
+        setTimeout(() => {
+          this.viewportScroller.scrollToAnchor(fragment);
+        }, 100);
+        // Guardar en el servicio la sección actual
+        this.navigationService.setLastSection(fragment);
+      }
+    });
+
     // Suscribirse a cambios de idioma
     this.i18nService.currentLanguage$.subscribe((lang) => {
       this.currentLanguage = lang;
@@ -55,5 +72,12 @@ export class Home implements OnInit {
    */
   getProjectDescription(project: Project): string {
     return this.currentLanguage === 'es' ? project.description : (project.descriptionEn || project.description);
+  }
+
+  /**
+   * Guarda la sección actual antes de navegar
+   */
+  saveSection(section: string): void {
+    this.navigationService.setLastSection(section);
   }
 }

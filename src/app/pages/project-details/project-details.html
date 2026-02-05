@@ -2,7 +2,7 @@
 <nav class="breadcrumb section pb-0" aria-label="breadcrumbs">
   <div class="container">
     <ul>
-      <li><a routerLink="/" class="breadcrumb-link">{{ 'breadcrumb.home' | translate }}</a></li>
+      <li><a [routerLink]="['/']" [fragment]="lastSection" class="breadcrumb-link">{{ 'breadcrumb.home' | translate }}</a></li>
       <li><a routerLink="/projects" class="breadcrumb-link">{{ 'breadcrumb.projects' | translate }}</a></li>
       <li class="is-active" *ngIf="project"><span>{{ getProjectTitle(project) }}</span></li>
     </ul>
