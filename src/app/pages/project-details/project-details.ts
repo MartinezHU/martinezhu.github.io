@@ -12,7 +12,7 @@ import { Project } from '../../models';
   templateUrl: './project-details.html',
   styleUrl: './project-details.scss',
 })
-export class ProjectDetailsComponent implements OnInit {
+export class ProjectDetails implements OnInit {
   currentLanguage: string = 'es';
   project: Project | undefined;
 

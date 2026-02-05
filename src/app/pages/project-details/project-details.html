@@ -115,7 +115,7 @@
           <h3 class="subtitle is-5 has-text-weight-semibold mb-4">{{ 'projects.relatedProjects' | translate }}</h3>
           <div *ngFor="let relatedProject of getRelatedProjects()" class="box related-project-item">
             <h4 class="subtitle is-6 has-text-weight-semibold">
-              <a [routerLink]="['/projects', relatedProject.id]" class="has-text-link">
+              <a [routerLink]="['/projects', relatedProject.id]" class="project-link">
                 {{ getProjectTitle(relatedProject) }}
               </a>
             </h4>

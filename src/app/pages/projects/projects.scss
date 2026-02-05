@@ -1,43 +1,49 @@
+@use '../../../styles/variables' as *;
+
 .projects-section {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  color: #fff;
+  background-color: $grey-carbon;
+  color: $white-pure;
+  padding: 5rem 1.5rem;
 
   .title,
   .subtitle {
-    color: #fff;
+    color: $white-pure;
   }
 
   .project-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    background-color: $grey-anthracite;
+    border: 1px solid $grey-anthracite;
     transition: all 0.3s ease;
     height: 100%;
     display: flex;
     flex-direction: column;
 
     &:hover {
-      border-color: rgba(72, 219, 251, 0.5);
-      box-shadow: 0 8px 32px rgba(72, 219, 251, 0.15);
+      border-color: $red-elegant;
+      box-shadow: 0 8px 16px rgba($red-elegant, 0.2);
       transform: translateY(-4px);
 
       .title a {
-        color: #48dbfb !important;
+        color: $red-elegant !important;
       }
     }
 
     .title {
       flex-grow: 1;
 
-      a {
-        color: #fff;
+      .project-link {
+        color: $white-pure;
         text-decoration: none;
         transition: color 0.3s ease;
 
         &:hover {
-          color: #48dbfb;
+          color: $red-elegant;
         }
       }
+    }
+
+    .has-text-grey {
+      color: $grey-silver !important;
     }
 
     .tags {
@@ -46,34 +52,49 @@
       gap: 0.5rem;
 
       .tag {
-        background: rgba(72, 219, 251, 0.2);
-        color: #48dbfb;
-        border: 1px solid rgba(72, 219, 251, 0.3);
+        background-color: $grey-carbon;
+        color: $grey-silver;
+        border: 1px solid $grey-anthracite;
+        transition: all 0.2s ease;
+
+        &:hover {
+          border-color: $red-elegant;
+          color: $white-pure;
+          background-color: rgba($red-elegant, 0.1);
+        }
       }
     }
 
     .button {
       &.is-light {
-        background-color: rgba(255, 255, 255, 0.1);
-        color: #fff;
-        border-color: rgba(255, 255, 255, 0.2);
+        background-color: rgba($white-pure, 0.1);
+        color: $white-pure;
+        border-color: $grey-anthracite;
 
         &:hover {
-          background-color: rgba(255, 255, 255, 0.2);
-          border-color: rgba(255, 255, 255, 0.3);
+          background-color: rgba($red-elegant, 0.1);
+          border-color: $red-elegant;
+          color: $red-elegant;
         }
       }
 
       &.is-primary {
         background-color: transparent;
-        border-color: #48dbfb;
-        color: #48dbfb;
+        border-color: $red-elegant;
+        color: $red-elegant;
 
         &:hover {
-          background-color: rgba(72, 219, 251, 0.1);
-          border-color: #48dbfb;
+          background-color: $red-elegant;
+          color: $white-pure;
         }
       }
     }
+  }
+}
+
+// Responsive
+@media screen and (max-width: 768px) {
+  .projects-section {
+    padding: 3rem 1.5rem;
   }
 }
