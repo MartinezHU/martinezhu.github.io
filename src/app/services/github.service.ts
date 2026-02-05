@@ -76,13 +76,38 @@ export class GitHubService {
   }
 
   /**
-   * Formatear nombre del repositorio (convertir guiones a espacios y capitalizar)
+   * Formatear nombre del repositorio para mayor legibilidad
+   * Convierte: api_auth → API Auth, apiAuth → API Auth, blog-vue → Blog Vue
    */
   private formatRepoName(name: string): string {
-    return name
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    // Primero, separar por guiones y guiones bajos
+    let formatted = name
+      .split(/[-_]/)
+      .filter(word => word.length > 0)
       .join(' ');
+
+    // Detectar camelCase y separar
+    formatted = formatted.replace(/([a-z])([A-Z])/g, '$1 $2');
+
+    // Capitalizar cada palabra y mantener acrónimos en mayúscula
+    formatted = formatted
+      .split(' ')
+      .map((word) => {
+        // Si la palabra es un acrónimo conocido, mantenerlo en mayúscula
+        const acronyms = ['api', 'jwt', 'rest', 'crud', 'orm', 'ui', 'ux', 'cli', 'ide'];
+        if (acronyms.includes(word.toLowerCase())) {
+          return word.toUpperCase();
+        }
+        // Si la palabra tiene menos de 3 caracteres, revisar si es una palabra corta común
+        if (word.length <= 2) {
+          return word.toUpperCase();
+        }
+        // Capitalizar primera letra
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      })
+      .join(' ');
+
+    return formatted;
   }
 
   /**
