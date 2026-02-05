@@ -1,0 +1,156 @@
+<!-- Breadcrumb -->
+<nav class="breadcrumb section pb-0" aria-label="breadcrumbs">
+  <div class="container">
+    <ul>
+      <li><a routerLink="/" class="breadcrumb-link">{{ 'breadcrumb.home' | translate }}</a></li>
+      <li><a routerLink="/projects" class="breadcrumb-link">{{ 'breadcrumb.projects' | translate }}</a></li>
+      <li class="is-active" *ngIf="project"><span>{{ getProjectTitle(project) }}</span></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Sección Detalles del Proyecto -->
+<section class="section project-details-section" *ngIf="project">
+  <div class="container">
+    <!-- Header del Proyecto -->
+    <div class="mb-6">
+      <div class="level is-mobile mb-4">
+        <div class="level-left">
+          <div class="level-item">
+            <span class="tag is-medium" *ngIf="project.status">
+              {{ 'projects.status.' + project.status | translate }}
+            </span>
+          </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item">
+            <span class="tag is-medium is-light" *ngIf="project.category">
+              {{ 'projects.category.' + project.category | translate }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="title is-2 has-text-weight-bold">{{ getProjectTitle(project) }}</h1>
+      <p class="subtitle is-5 has-text-grey">{{ project.description }}</p>
+
+      <div class="level is-mobile mt-4">
+        <div class="level-left">
+          <div class="level-item" *ngIf="project.startDate">
+            <span class="tag is-light">
+              <i class="fas fa-calendar-alt mr-2"></i>
+              {{ project.startDate | date: 'MMM yyyy' }}
+              <span *ngIf="project.endDate">- {{ project.endDate | date: 'MMM yyyy' }}</span>
+            </span>
+          </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item">
+            <a *ngIf="project.repoUrl" [href]="project.repoUrl" target="_blank" class="button is-light is-outlined mr-2">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              <span>{{ 'projects.viewRepo' | translate }}</span>
+            </a>
+            <a *ngIf="project.demoUrl" [href]="project.demoUrl" target="_blank" class="button is-primary is-outlined">
+              <span class="icon">
+                <i class="fas fa-external-link-alt"></i>
+              </span>
+              <span>{{ 'projects.viewDemo' | translate }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Contenido Principal -->
+    <div class="columns">
+      <!-- Descripción Larga -->
+      <div class="column is-8">
+        <div class="content">
+          <h2 class="subtitle is-4 has-text-weight-semibold">{{ 'projects.aboutProject' | translate }}</h2>
+          <p>{{ getProjectLongDescription(project) }}</p>
+        </div>
+
+        <!-- Tecnologías -->
+        <div class="mb-6">
+          <h2 class="subtitle is-4 has-text-weight-semibold mb-3">{{ 'projects.technologies' | translate }}</h2>
+          <div class="tags">
+            <span class="tag is-medium" *ngFor="let tech of project.technologies">
+              {{ tech }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="column is-4">
+        <!-- Información Rápida -->
+        <div class="box quick-info">
+          <h3 class="subtitle is-5 has-text-weight-semibold mb-4">{{ 'projects.projectInfo' | translate }}</h3>
+
+          <div class="mb-4" *ngIf="project.status">
+            <p class="is-size-7 has-text-weight-semibold has-text-grey-light">{{ 'projects.status.label' | translate }}</p>
+            <p class="has-text-weight-semibold">{{ 'projects.status.' + project.status | translate }}</p>
+          </div>
+
+          <div class="mb-4" *ngIf="project.category">
+            <p class="is-size-7 has-text-weight-semibold has-text-grey-light">{{ 'projects.category.label' | translate }}</p>
+            <p class="has-text-weight-semibold">{{ 'projects.category.' + project.category | translate }}</p>
+          </div>
+
+          <div *ngIf="project.startDate">
+            <p class="is-size-7 has-text-weight-semibold has-text-grey-light">{{ 'projects.date' | translate }}</p>
+            <p class="has-text-weight-semibold">
+              {{ project.startDate | date: 'MMM yyyy' }}
+              <span *ngIf="project.endDate">- {{ project.endDate | date: 'MMM yyyy' }}</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Proyectos Relacionados -->
+        <div class="related-projects" *ngIf="getRelatedProjects().length > 0">
+          <h3 class="subtitle is-5 has-text-weight-semibold mb-4">{{ 'projects.relatedProjects' | translate }}</h3>
+          <div *ngFor="let relatedProject of getRelatedProjects()" class="box related-project-item">
+            <h4 class="subtitle is-6 has-text-weight-semibold">
+              <a [routerLink]="['/projects', relatedProject.id]" class="has-text-link">
+                {{ getProjectTitle(relatedProject) }}
+              </a>
+            </h4>
+            <p class="is-size-7 has-text-grey mb-2">{{ relatedProject.description }}</p>
+            <a [routerLink]="['/projects', relatedProject.id]" class="button is-small is-light is-outlined is-fullwidth">
+              {{ 'projects.viewDetails' | translate }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Navegación -->
+    <div class="level is-mobile">
+      <div class="level-left">
+        <div class="level-item">
+          <a routerLink="/projects" class="button is-light">
+            <span class="icon">
+              <i class="fas fa-arrow-left"></i>
+            </span>
+            <span>{{ 'projects.backToProjects' | translate }}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 404 - Proyecto no encontrado -->
+<section class="section" *ngIf="!project">
+  <div class="container has-text-centered">
+    <h1 class="title is-2">{{ 'projects.notFound' | translate }}</h1>
+    <p class="subtitle">{{ 'projects.projectNotFoundMessage' | translate }}</p>
+    <a routerLink="/projects" class="button is-primary">{{ 'projects.backToProjects' | translate }}</a>
+  </div>
+</section>

@@ -1,0 +1,79 @@
+.projects-section {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #fff;
+
+  .title,
+  .subtitle {
+    color: #fff;
+  }
+
+  .project-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      border-color: rgba(72, 219, 251, 0.5);
+      box-shadow: 0 8px 32px rgba(72, 219, 251, 0.15);
+      transform: translateY(-4px);
+
+      .title a {
+        color: #48dbfb !important;
+      }
+    }
+
+    .title {
+      flex-grow: 1;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #48dbfb;
+        }
+      }
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+
+      .tag {
+        background: rgba(72, 219, 251, 0.2);
+        color: #48dbfb;
+        border: 1px solid rgba(72, 219, 251, 0.3);
+      }
+    }
+
+    .button {
+      &.is-light {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.2);
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+          border-color: rgba(255, 255, 255, 0.3);
+        }
+      }
+
+      &.is-primary {
+        background-color: transparent;
+        border-color: #48dbfb;
+        color: #48dbfb;
+
+        &:hover {
+          background-color: rgba(72, 219, 251, 0.1);
+          border-color: #48dbfb;
+        }
+      }
+    }
+  }
+}

@@ -1,53 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink, Router } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { I18nService } from '../../services/i18n.service';
 import { Project } from '../../models';
 
 @Component({
-  selector: 'app-projects',
+  selector: 'app-project-details',
   imports: [CommonModule, RouterLink, TranslateModule],
-  templateUrl: './projects.html',
-  styleUrl: './projects.scss',
+  templateUrl: './project-details.html',
+  styleUrl: './project-details.scss',
 })
-export class Projects implements OnInit {
+export class ProjectDetailsComponent implements OnInit {
   currentLanguage: string = 'es';
+  project: Project | undefined;
 
-  constructor(
-    private viewportScroller: ViewportScroller,
-    public i18nService: I18nService,
-    private translateService: TranslateService
-  ) {
-    this.currentLanguage = this.i18nService.getCurrentLanguage();
-  }
-
-  ngOnInit() {
-    // Scroll a la parte superior de la página
-    this.viewportScroller.scrollToPosition([0, 0]);
-
-    // Suscribirse a cambios de idioma
-    this.i18nService.currentLanguage$.subscribe((lang) => {
-      this.currentLanguage = lang;
-    });
-  }
-
-  /**
-   * Obtener título del proyecto según idioma actual
-   */
-  getProjectTitle(project: Project): string {
-    return this.currentLanguage === 'es' ? project.title : (project.titleEn || project.title);
-  }
-
-  /**
-   * Obtener descripción del proyecto según idioma actual
-   */
-  getProjectDescription(project: Project): string {
-    return this.currentLanguage === 'es' ? project.description : (project.descriptionEn || project.description);
-  }
-
-  // Array de proyectos
+  // Array de proyectos (mismo que en projects.ts)
   projects: Project[] = [
     {
       id: '1',
@@ -130,10 +99,65 @@ export class Projects implements OnInit {
     },
   ];
 
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private viewportScroller: ViewportScroller,
+    public i18nService: I18nService,
+    private translateService: TranslateService
+  ) {
+    this.currentLanguage = this.i18nService.getCurrentLanguage();
+  }
+
+  ngOnInit() {
+    // Scroll a la parte superior de la página
+    this.viewportScroller.scrollToPosition([0, 0]);
+
+    // Suscribirse a cambios de idioma
+    this.i18nService.currentLanguage$.subscribe((lang) => {
+      this.currentLanguage = lang;
+    });
+
+    // Obtener ID del proyecto de los parámetros de ruta
+    this.route.params.subscribe((params) => {
+      const projectId = params['id'];
+      this.project = this.projects.find((p) => p.id === projectId);
+
+      if (!this.project) {
+        // Redirigir a proyectos si no existe
+        this.router.navigate(['/projects']);
+      }
+    });
+  }
+
   /**
-   * Obtener proyectos destacados
+   * Obtener título del proyecto según idioma actual
    */
-  getFeaturedProjects(): Project[] {
-    return this.projects.filter((p) => p.featured);
+  getProjectTitle(project: Project): string {
+    return this.currentLanguage === 'es' ? project.title : (project.titleEn || project.title);
+  }
+
+  /**
+   * Obtener descripción larga del proyecto según idioma actual
+   */
+  getProjectLongDescription(project: Project): string {
+    return this.currentLanguage === 'es' ? (project.longDescription || project.description) : (project.longDescriptionEn || project.descriptionEn || project.description);
+  }
+
+  /**
+   * Obtener proyectos relacionados (misma categoría)
+   */
+  getRelatedProjects(): Project[] {
+    if (!this.project) return [];
+    return this.projects.filter((p) => p.category === this.project!.category && p.id !== this.project!.id).slice(0, 3);
+  }
+
+  /**
+   * Navegar a otro proyecto
+   */
+  navigateToProject(projectId: string | undefined) {
+    if (projectId) {
+      this.router.navigate(['/projects', projectId]);
+    }
   }
 }

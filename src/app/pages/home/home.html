@@ -35,3 +35,80 @@
     </div>
   </div>
 </section>
+
+<!-- Sección Proyectos Destacados -->
+<section class="section projects-preview" id="projects">
+  <div class="container">
+    <h2 class="title is-2 has-text-centered mb-6">
+      {{ 'projects.title' | translate }}
+    </h2>
+    <p class="subtitle is-5 has-text-centered has-text-grey mb-6">
+      {{ 'projects.subtitle' | translate }}
+    </p>
+
+    <div class="columns is-multiline">
+      <div class="column is-4" *ngFor="let project of projects">
+        <div class="box project-card">
+          <div class="level is-mobile mb-3">
+            <div class="level-left">
+              <div class="level-item">
+                <span class="tag is-light is-small" *ngIf="project.status">
+                  {{ 'projects.status.' + project.status | translate }}
+                </span>
+              </div>
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+                <span class="tag is-light is-small" *ngIf="project.category">
+                  {{ 'projects.category.' + project.category | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="title is-5 has-text-weight-semibold mb-2">
+            <a [routerLink]="['/projects', project.id]" class="has-text-link">
+              {{ getProjectTitle(project) }}
+            </a>
+          </h3>
+
+          <p class="mb-3 has-text-grey is-size-7">{{ getProjectDescription(project) }}</p>
+
+          <div class="mb-3">
+            <div class="tags">
+              <span class="tag is-small" *ngFor="let tech of project.technologies | slice: 0:3">
+                {{ tech }}
+              </span>
+              <span class="tag is-small" *ngIf="project.technologies.length > 3">
+                +{{ project.technologies.length - 3 }}
+              </span>
+            </div>
+          </div>
+
+          <div class="level is-mobile">
+            <div class="level-left"></div>
+            <div class="level-right">
+              <div class="level-item">
+                <a [routerLink]="['/projects', project.id]" class="button is-small is-light is-outlined">
+                  <span class="icon is-small">
+                    <i class="fas fa-arrow-right"></i>
+                  </span>
+                  <span>{{ 'projects.viewDetails' | translate }}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="has-text-centered mt-6">
+      <a routerLink="/projects" class="button is-primary is-medium">
+        <span class="icon">
+          <i class="fas fa-briefcase"></i>
+        </span>
+        <span>{{ 'projects.title' | translate }}</span>
+      </a>
+    </div>
+  </div>
+</section>

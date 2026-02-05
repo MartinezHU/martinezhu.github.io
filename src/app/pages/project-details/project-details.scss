@@ -1,0 +1,120 @@
+.project-details-section {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #fff;
+
+  .title,
+  .subtitle {
+    color: #fff;
+  }
+
+  .content {
+    color: #fff;
+
+    p {
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+  }
+
+  .tag {
+    background: rgba(72, 219, 251, 0.2);
+    color: #48dbfb;
+    border: 1px solid rgba(72, 219, 251, 0.3);
+
+    &.is-light {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    &.is-medium {
+      background: rgba(72, 219, 251, 0.15);
+      border-color: rgba(72, 219, 251, 0.4);
+    }
+  }
+
+  .button {
+    &.is-light {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.2);
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+    }
+
+    &.is-primary {
+      background-color: transparent;
+      border-color: #48dbfb;
+      color: #48dbfb;
+
+      &:hover {
+        background-color: rgba(72, 219, 251, 0.1);
+        border-color: #48dbfb;
+      }
+    }
+  }
+
+  .box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+
+    &.quick-info {
+      position: sticky;
+      top: 2rem;
+
+      p {
+        color: #fff;
+      }
+
+      .has-text-grey-light {
+        color: #b0b0c0 !important;
+      }
+    }
+  }
+
+  .related-projects {
+    .related-project-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        border-color: rgba(72, 219, 251, 0.5);
+        background: rgba(72, 219, 251, 0.05);
+
+        a {
+          color: #48dbfb !important;
+        }
+      }
+
+      h4 {
+        color: #fff;
+      }
+
+      p {
+        color: #b0b0c0;
+      }
+
+      .button {
+        &.is-light {
+          background-color: rgba(72, 219, 251, 0.2);
+          border-color: rgba(72, 219, 251, 0.3);
+          color: #48dbfb;
+
+          &:hover {
+            background-color: rgba(72, 219, 251, 0.3);
+            border-color: rgba(72, 219, 251, 0.5);
+          }
+        }
+      }
+    }
+  }
+
+  .divider {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
