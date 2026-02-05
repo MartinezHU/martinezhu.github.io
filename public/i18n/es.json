@@ -12,7 +12,12 @@
     "passion2": "Diseño de interfaces intuitivas y elegantes",
     "passion3": "Resolver problemas complejos con código limpio",
     "passion4": "Aprendizaje continuo y compartir conocimientos",
-    "hobbies": "Hobbies & Intereses:"
+    "hobbies": "Hobbies & Intereses:",
+    "hobby1": "Videojuegos",
+    "hobby2": "Tecnología",
+    "hobby3": "Open Source",
+    "hobby4": "Anime/Manga",
+    "hobby5": "Música"
   },
   "stack": {
     "title": "Mi Stack Tecnológico",
