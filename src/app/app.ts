@@ -3,13 +3,14 @@ import { Router, NavigationEnd, ChildrenOutletContexts } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { Header } from "./components/shared/header/header";
 import { Footer } from "./components/shared/footer/footer";
+import { ConstructionBanner } from "./components/shared/construction-banner/construction-banner";
 import { I18nService } from './services/i18n.service';
 import { filter } from 'rxjs';
 import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Footer],
+  imports: [RouterOutlet, Header, Footer, ConstructionBanner],
   templateUrl: './app.html',
   styleUrl: './app.scss',
   animations: [
