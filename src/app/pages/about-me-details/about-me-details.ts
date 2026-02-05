@@ -2,20 +2,35 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
+import { I18nService } from '../../services/i18n.service';
 import { TechStack, TechCategory, Education, EducationType, Certification, CertificationCategory } from '../../models';
 
 @Component({
   selector: 'app-about-me-details',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, TranslateModule],
   templateUrl: './about-me-details.html',
   styleUrl: './about-me-details.scss',
 })
 export class AboutMeDetails implements OnInit {
-  constructor(private viewportScroller: ViewportScroller) {}
+  currentLanguage: string = 'es';
+
+  constructor(private viewportScroller: ViewportScroller, public i18nService: I18nService) {
+    this.currentLanguage = this.i18nService.getCurrentLanguage();
+  }
 
   ngOnInit() {
     // Scroll a la parte superior de la página
     this.viewportScroller.scrollToPosition([0, 0]);
+
+    // Suscribirse a cambios de idioma
+    this.i18nService.currentLanguage$.subscribe((lang) => {
+      this.currentLanguage = lang;
+    });
+  }
+
+  toggleLanguage(): void {
+    this.i18nService.toggleLanguage();
   }
 
   // Stack de tecnologías - reemplazar con datos reales

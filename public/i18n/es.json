@@ -1,0 +1,37 @@
+{
+  "common": {
+    "language": "Idioma",
+    "spanish": "Español",
+    "english": "English"
+  },
+  "about": {
+    "greeting": "¡Hola! Soy",
+    "bio": "Desarrollador apasionado por crear experiencias digitales increíbles. Me especializo en desarrollo frontend con Angular y tecnologías modernas. Siempre buscando aprender nuevas tecnologías y enfrentar desafíos innovadores.",
+    "passions": "Lo que me apasiona:",
+    "passion1": "Desarrollo de aplicaciones web y móviles",
+    "passion2": "Diseño de interfaces intuitivas y elegantes",
+    "passion3": "Resolver problemas complejos con código limpio",
+    "passion4": "Aprendizaje continuo y compartir conocimientos",
+    "hobbies": "Hobbies & Intereses:"
+  },
+  "stack": {
+    "title": "Mi Stack Tecnológico",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "mobile": "Mobile",
+    "database": "Bases de Datos",
+    "devops": "DevOps",
+    "tools": "Tools & Others"
+  },
+  "education": {
+    "title": "Formación Académica"
+  },
+  "certifications": {
+    "title": "Certificaciones & Logros",
+    "viewCredential": "Ver credencial"
+  },
+  "breadcrumb": {
+    "home": "Inicio",
+    "about": "Sobre mí"
+  }
+}

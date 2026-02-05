@@ -2,8 +2,8 @@
 <nav class="breadcrumb section pb-0" aria-label="breadcrumbs">
   <div class="container">
     <ul>
-      <li><a routerLink="/" class="breadcrumb-link">Inicio</a></li>
-      <li class="is-active"><span>Sobre mí</span></li>
+      <li><a routerLink="/" class="breadcrumb-link">{{ 'breadcrumb.home' | translate }}</a></li>
+      <li class="is-active"><span>{{ 'breadcrumb.about' | translate }}</span></li>
     </ul>
   </div>
 </nav>
@@ -23,24 +23,22 @@
       </div>
       <div class="column is-8">
         <h1 class="title is-2 has-text-weight-bold has-text-white">
-          ¡Hola! Soy <span class="has-text-primary">Héctor</span>
+          {{ 'about.greeting' | translate }} <span class="has-text-primary">Héctor</span>
         </h1>
         <p class="content is-size-5 has-text-grey-light">
-          <strong>[Placeholder Bio]</strong> - Desarrollador apasionado por crear experiencias
-          digitales increíbles. Me especializo en desarrollo frontend con Angular y tecnologías
-          modernas. Siempre buscando aprender nuevas tecnologías y enfrentar desafíos innovadores.
+          {{ 'about.bio' | translate }}
         </p>
         <div class="content">
-          <h3 class="subtitle is-5 has-text-weight-semibold has-text-white">💡 Lo que me apasiona:</h3>
+          <h3 class="subtitle is-5 has-text-weight-semibold has-text-white">💡 {{ 'about.passions' | translate }}</h3>
           <ul>
-            <li>🚀 Desarrollo de aplicaciones web y móviles</li>
-            <li>🎨 Diseño de interfaces intuitivas y elegantes</li>
-            <li>🧠 Resolver problemas complejos con código limpio</li>
-            <li>📚 Aprendizaje continuo y compartir conocimientos</li>
+            <li>🚀 {{ 'about.passion1' | translate }}</li>
+            <li>🎨 {{ 'about.passion2' | translate }}</li>
+            <li>🧠 {{ 'about.passion3' | translate }}</li>
+            <li>📚 {{ 'about.passion4' | translate }}</li>
           </ul>
         </div>
         <div class="content">
-          <h3 class="subtitle is-5 has-text-weight-semibold has-text-white">🎮 Hobbies & Intereses:</h3>
+          <h3 class="subtitle is-5 has-text-weight-semibold has-text-white">🎮 {{ 'about.hobbies' | translate }}</h3>
           <div class="tags">
             <span class="tag is-medium">Videojuegos</span>
             <span class="tag is-medium">Tecnología</span>
@@ -59,7 +57,7 @@
 <section class="section tech-stack-section">
   <div class="container">
     <h2 class="title is-3 has-text-centered mb-6">
-      Mi <span class="has-text-primary">Stack</span> Tecnológico
+      {{ 'stack.title' | translate }}
     </h2>
 
     <div class="columns is-multiline">
@@ -71,7 +69,7 @@
               <span class="icon has-text-primary">
                 <i class="fas fa-laptop-code"></i>
               </span>
-              <span>Frontend</span>
+              <span>{{ 'stack.frontend' | translate }}</span>
             </span>
           </h3>
           <div class="tags">
@@ -95,7 +93,7 @@
                   <i class="fas fa-server"></i>
                 </span>
               </span>
-              <span>Backend</span>
+              <span>{{ 'stack.backend' | translate }}</span>
             </span>
           </h3>
           <div class="tags">
@@ -117,7 +115,7 @@
               <span class="icon has-text-primary">
                 <i class="fas fa-mobile-alt"></i>
               </span>
-              <span>Mobile</span>
+              <span>{{ 'stack.mobile' | translate }}</span>
             </span>
           </h3>
           <div class="tags">
@@ -139,7 +137,7 @@
               <span class="icon has-text-primary">
                 <i class="fas fa-tools"></i>
               </span>
-              <span>Tools & Others</span>
+              <span>{{ 'stack.tools' | translate }}</span>
             </span>
           </h3>
           <div class="tags">
@@ -165,7 +163,7 @@
 <section class="section education-section">
   <div class="container">
     <h2 class="title is-3 has-text-centered mb-6">
-      <span class="has-text-primary">Formación</span> Académica
+      {{ 'education.title' | translate }}
     </h2>
 
     <div class="timeline">
@@ -219,7 +217,7 @@
 <section class="section certifications-section">
   <div class="container">
     <h2 class="title is-3 has-text-centered mb-6">
-      <span class="has-text-primary">Certificaciones</span> & Logros
+      {{ 'certifications.title' | translate }}
     </h2>
 
     <div class="columns is-multiline">
@@ -260,7 +258,7 @@
                   <span class="icon is-small">
                     <i class="fas fa-external-link-alt"></i>
                   </span>
-                  <span>Ver credencial</span>
+                  <span>{{ 'certifications.viewCredential' | translate }}</span>
                 </a>
               </div>
             </div>

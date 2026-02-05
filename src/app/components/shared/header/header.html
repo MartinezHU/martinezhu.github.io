@@ -23,6 +23,40 @@
       <a class="button-48 navbar-item" href="#skills">Habilidades</a>
       <a class="button-48 navbar-item" href="#projects">Proyectos</a>
       <a class="button-48 navbar-item" href="#contact">Contacto</a>
+
+      <!-- Selector de idioma -->
+      <div class="navbar-item">
+        <div class="field is-grouped">
+          <p class="control">
+            <button
+              class="button is-light is-small"
+              [class.is-primary]="currentLanguage === 'es'"
+              (click)="currentLanguage !== 'es' && toggleLanguage()"
+              type="button"
+              title="Español"
+            >
+              <span class="icon is-small">
+                <i class="fas fa-language"></i>
+              </span>
+              <span>ES</span>
+            </button>
+          </p>
+          <p class="control">
+            <button
+              class="button is-light is-small"
+              [class.is-primary]="currentLanguage === 'en'"
+              (click)="currentLanguage !== 'en' && toggleLanguage()"
+              type="button"
+              title="English"
+            >
+              <span class="icon is-small">
+                <i class="fas fa-language"></i>
+              </span>
+              <span>EN</span>
+            </button>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
