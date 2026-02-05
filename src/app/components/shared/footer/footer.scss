@@ -1,0 +1,14 @@
+.logo {
+  width: 180px;
+  height: 60px;
+  display: block;
+  background-image: url(/img/logo_red.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.3s ease-in-out;
+}
+
+.logo:hover {
+  background-image: url(/img/logo_black.svg);
+}

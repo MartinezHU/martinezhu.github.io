@@ -1,0 +1,82 @@
+// ============================================
+// PALETA DE COLORES PERSONALIZADA
+// ============================================
+
+// --- Colores Principales ---
+$red-elegant: #FF013C;
+$red-deep: #B8002E;
+
+// --- Escala de Grises ---
+$black-soft: #0A0A0A;
+$grey-carbon: #1E1E1E;
+$grey-anthracite: #2D2D2D;
+$grey-silver: #9CA3AF;
+$grey-platinum: #F5F5F7;
+$white-pure: #FFFFFF;
+
+// ============================================
+// SOBREESCRITURA DE VARIABLES BULMA
+// ============================================
+
+// --- Colores Base de Bulma ---
+$primary: $red-elegant;
+$link: $red-elegant;
+$info: $grey-silver;
+$success: #10B981;
+$warning: #F59E0B;
+$danger: $red-elegant;
+
+// --- Colores de Texto ---
+$text: $black-soft;
+$text-strong: $black-soft;
+$text-light: $grey-silver;
+
+// --- Colores de Fondo ---
+$body-background-color: $white-pure;
+$background: $grey-platinum;
+
+// --- Colores de Bordes ---
+$border: $grey-anthracite;
+$border-hover: $red-elegant;
+
+// --- Enlaces ---
+$link-hover: $red-deep;
+$link-focus: $red-deep;
+$link-active: $red-deep;
+
+// --- Botones ---
+$button-background-color: $grey-anthracite;
+$button-border-color: $grey-anthracite;
+$button-hover-color: $white-pure;
+$button-focus-color: $white-pure;
+
+// --- Navbar ---
+$navbar-background-color: $grey-carbon;
+$navbar-item-color: $grey-platinum;
+$navbar-item-hover-color: $red-elegant;
+$navbar-item-hover-background-color: transparent;
+$navbar-item-active-color: $red-elegant;
+
+// --- Footer ---
+$footer-background-color: $grey-carbon;
+$footer-color: $grey-silver;
+
+// --- Cards ---
+$card-background-color: $white-pure;
+$card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+// --- Hero ---
+$hero-body-padding: 3rem 1.5rem;
+
+// --- Tipografía ---
+// $family-sans-serif: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$title-color: $black-soft;
+$subtitle-color: $grey-silver;
+
+// --- Esquinas redondeadas (más moderno) ---
+$radius: 8px;
+$radius-small: 4px;
+$radius-large: 12px;
+
+/* Tipografía global */
+$family-sans-serif: 'Poppins', sans-serif;

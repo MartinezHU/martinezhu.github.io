@@ -1,0 +1,91 @@
+/* You can add global styles to this file, and also import other style files */
+@use "./styles/_variables.scss" as *;
+
+@use "bulma/bulma";
+
+@import "./styles/fonts.css";
+
+// Reset CSS simple + tipografía
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $family-sans-serif;
+}
+
+// --- Hero oscuro elegante ---
+.hero.is-dark-elegant {
+    background-color: $grey-carbon;
+    color: $white-pure;
+
+    .title {
+        color: $white-pure;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: $red-elegant;
+        }
+    }
+
+    .subtitle {
+        color: $grey-silver;
+    }
+}
+
+// --- Tarjeta de proyecto con efecto hover ---
+.card.project-card {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+
+    &:hover {
+        transform: translateY(-5px);
+        border-color: $red-elegant;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+}
+
+// --- Sección alternada oscura ---
+.section.is-dark {
+    background-color: $grey-carbon;
+    color: $white-pure;
+
+    .title,
+    .subtitle {
+        color: $white-pure;
+    }
+}
+
+// --- Botón principal destacado ---
+.button.is-primary {
+    background-color: $red-elegant;
+    border-color: $red-elegant;
+    color: $white-pure;
+    font-weight: 600;
+
+    &:hover,
+    &:focus {
+        background-color: $red-deep;
+        border-color: $red-deep;
+    }
+}
+
+// --- Acento de texto rojo ---
+.has-text-accent {
+    color: $red-elegant;
+}
+
+// --- Iconos sociales ---
+.social-icon {
+    color: $grey-silver;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: $red-elegant;
+    }
+}
