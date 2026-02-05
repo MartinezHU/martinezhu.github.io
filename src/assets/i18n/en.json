@@ -1,0 +1,94 @@
+{
+  "common": {
+    "language": "Language",
+    "spanish": "Español",
+    "english": "English"
+  },
+  "about": {
+    "greeting": "Hello! I'm",
+    "bio": "Passionate developer dedicated to creating incredible digital experiences. I specialize in frontend development with Angular and modern technologies. Always looking to learn new technologies and face innovative challenges.",
+    "passions": "What I'm passionate about:",
+    "passion1": "Development of web and mobile applications",
+    "passion2": "Design of intuitive and elegant interfaces",
+    "passion3": "Solving complex problems with clean code",
+    "passion4": "Continuous learning and sharing knowledge",
+    "hobbies": "Hobbies & Interests:"
+  },
+  "stack": {
+    "title": "My Tech Stack",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "mobile": "Mobile",
+    "database": "Databases",
+    "devops": "DevOps",
+    "tools": "Tools & Others",
+    "levels": {
+      "advanced": "Advanced",
+      "intermediate": "Intermediate",
+      "beginner": "Beginner"
+    }
+  },
+  "education": {
+    "title": "Academic Education",
+    "degrees": {
+      "smartNetworking": {
+        "es": "Sistemas Microinformáticos y Redes",
+        "en": "IT Systems and Networks"
+      },
+      "webApps": {
+        "es": "Desarrollo de Aplicaciones Web",
+        "en": "Web Application Development"
+      },
+      "aiAndBigData": {
+        "es": "Inteligencia Artificial y Big Data",
+        "en": "Artificial Intelligence and Big Data"
+      }
+    }
+  },
+  "certifications": {
+    "title": "Certifications & Achievements",
+    "viewCredential": "View credential",
+    "certs": {
+      "springBoot": {
+        "es": "Java EE / Spring Boot",
+        "en": "Java EE / Spring Boot"
+      },
+      "cybersecurity": {
+        "es": "Certificado Profesional de Ciberseguridad",
+        "en": "Professional Cybersecurity Certificate"
+      },
+      "vr": {
+        "es": "Realidad Virtual y Aumentada",
+        "en": "Virtual and Augmented Reality"
+      },
+      "aiBigData": {
+        "es": "Programación en IA y Big Data",
+        "en": "AI and Big Data Programming"
+      }
+    }
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "about": "About Me"
+  },
+  "header": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "skills": "Skills",
+      "projects": "Projects",
+      "contact": "Contact"
+    }
+  },
+  "home": {
+    "aboutTitlePrefix": "About",
+    "aboutTitleHighlight": "me",
+    "aboutText1": "I'm a passionate developer focused on creating exceptional digital experiences. With experience in web and mobile development, I specialize in modern technologies like Angular, React, and more.",
+    "aboutText2": "I love solving complex problems, learning new technologies, and working on projects that make a difference. Always looking for new challenges and opportunities to grow professionally.",
+    "aboutCta": "Learn more about me"
+  },
+  "footer": {
+    "role": "Web & Mobile Developer",
+    "rights": "© 2025 Héctor Dev. All rights reserved."
+  }
+}

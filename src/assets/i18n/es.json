@@ -1,0 +1,94 @@
+{
+  "common": {
+    "language": "Idioma",
+    "spanish": "Español",
+    "english": "English"
+  },
+  "about": {
+    "greeting": "¡Hola! Soy",
+    "bio": "Desarrollador apasionado por crear experiencias digitales increíbles. Me especializo en desarrollo frontend con Angular y tecnologías modernas. Siempre buscando aprender nuevas tecnologías y enfrentar desafíos innovadores.",
+    "passions": "Lo que me apasiona:",
+    "passion1": "Desarrollo de aplicaciones web y móviles",
+    "passion2": "Diseño de interfaces intuitivas y elegantes",
+    "passion3": "Resolver problemas complejos con código limpio",
+    "passion4": "Aprendizaje continuo y compartir conocimientos",
+    "hobbies": "Hobbies & Intereses:"
+  },
+  "stack": {
+    "title": "Mi Stack Tecnológico",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "mobile": "Mobile",
+    "database": "Bases de Datos",
+    "devops": "DevOps",
+    "tools": "Tools & Others",
+    "levels": {
+      "advanced": "Avanzado",
+      "intermediate": "Intermedio",
+      "beginner": "Principiante"
+    }
+  },
+  "education": {
+    "title": "Formación Académica",
+    "degrees": {
+      "smartNetworking": {
+        "es": "Sistemas Microinformáticos y Redes",
+        "en": "IT Systems and Networks"
+      },
+      "webApps": {
+        "es": "Desarrollo de Aplicaciones Web",
+        "en": "Web Application Development"
+      },
+      "aiAndBigData": {
+        "es": "Inteligencia Artificial y Big Data",
+        "en": "Artificial Intelligence and Big Data"
+      }
+    }
+  },
+  "certifications": {
+    "title": "Certificaciones & Logros",
+    "viewCredential": "Ver credencial",
+    "certs": {
+      "springBoot": {
+        "es": "Java EE / Spring Boot",
+        "en": "Java EE / Spring Boot"
+      },
+      "cybersecurity": {
+        "es": "Certificado Profesional de Ciberseguridad",
+        "en": "Professional Cybersecurity Certificate"
+      },
+      "vr": {
+        "es": "Realidad Virtual y Aumentada",
+        "en": "Virtual and Augmented Reality"
+      },
+      "aiBigData": {
+        "es": "Programación en IA y Big Data",
+        "en": "AI and Big Data Programming"
+      }
+    }
+  },
+  "breadcrumb": {
+    "home": "Inicio",
+    "about": "Sobre mí"
+  },
+  "header": {
+    "nav": {
+      "home": "Inicio",
+      "about": "Sobre mí",
+      "skills": "Habilidades",
+      "projects": "Proyectos",
+      "contact": "Contacto"
+    }
+  },
+  "home": {
+    "aboutTitlePrefix": "Sobre",
+    "aboutTitleHighlight": "mí",
+    "aboutText1": "Soy un desarrollador apasionado por crear experiencias digitales excepcionales. Con experiencia en desarrollo web y móvil, me especializo en tecnologías modernas como Angular, React y más.",
+    "aboutText2": "Me encanta resolver problemas complejos, aprender nuevas tecnologías y trabajar en proyectos que marquen la diferencia. Siempre en búsqueda de nuevos desafíos y oportunidades para crecer profesionalmente.",
+    "aboutCta": "Conocer más sobre mí"
+  },
+  "footer": {
+    "role": "Desarrollador Web & Móvil",
+    "rights": "© 2025 Héctor Dev. Todos los derechos reservados."
+  }
+}

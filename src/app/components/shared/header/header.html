@@ -18,11 +18,45 @@
 
   <div id="navbarMenu" class="navbar-menu">
     <div class="navbar-end">
-      <a class="button-48 navbar-item" href="#top">Inicio</a>
-      <a class="button-48 navbar-item" href="#about-me">Sobre mi</a>
-      <a class="button-48 navbar-item" href="#skills">Habilidades</a>
-      <a class="button-48 navbar-item" href="#projects">Proyectos</a>
-      <a class="button-48 navbar-item" href="#contact">Contacto</a>
+      <a class="button-48 navbar-item" href="#top">{{ 'header.nav.home' | translate }}</a>
+      <a class="button-48 navbar-item" href="#about-me">{{ 'header.nav.about' | translate }}</a>
+      <a class="button-48 navbar-item" href="#skills">{{ 'header.nav.skills' | translate }}</a>
+      <a class="button-48 navbar-item" href="#projects">{{ 'header.nav.projects' | translate }}</a>
+      <a class="button-48 navbar-item" href="#contact">{{ 'header.nav.contact' | translate }}</a>
+
+      <!-- Selector de idioma -->
+      <div class="navbar-item">
+        <div class="field is-grouped">
+          <p class="control">
+            <button
+              class="button is-light is-small"
+              [class.is-primary]="currentLanguage === 'es'"
+              (click)="currentLanguage !== 'es' && toggleLanguage()"
+              type="button"
+              title="{{ 'common.spanish' | translate }}"
+            >
+              <span class="icon is-small">
+                <i class="fas fa-language"></i>
+              </span>
+              <span>ES</span>
+            </button>
+          </p>
+          <p class="control">
+            <button
+              class="button is-light is-small"
+              [class.is-primary]="currentLanguage === 'en'"
+              (click)="currentLanguage !== 'en' && toggleLanguage()"
+              type="button"
+              title="{{ 'common.english' | translate }}"
+            >
+              <span class="icon is-small">
+                <i class="fas fa-language"></i>
+              </span>
+              <span>EN</span>
+            </button>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </nav>

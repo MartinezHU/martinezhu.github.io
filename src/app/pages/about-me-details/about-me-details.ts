@@ -2,20 +2,74 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { I18nService } from '../../services/i18n.service';
 import { TechStack, TechCategory, Education, EducationType, Certification, CertificationCategory } from '../../models';
 
 @Component({
   selector: 'app-about-me-details',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, TranslateModule],
   templateUrl: './about-me-details.html',
   styleUrl: './about-me-details.scss',
 })
 export class AboutMeDetails implements OnInit {
-  constructor(private viewportScroller: ViewportScroller) {}
+  currentLanguage: string = 'es';
+  translatedLevelMap: { [key: string]: string } = {};
+
+  constructor(private viewportScroller: ViewportScroller, public i18nService: I18nService, private translateService: TranslateService) {
+    this.currentLanguage = this.i18nService.getCurrentLanguage();
+  }
 
   ngOnInit() {
     // Scroll a la parte superior de la página
     this.viewportScroller.scrollToPosition([0, 0]);
+
+    // Suscribirse a cambios de idioma
+    this.i18nService.currentLanguage$.subscribe((lang) => {
+      this.currentLanguage = lang;
+      this.loadTranslatedLevels();
+    });
+
+    // Cargar niveles traducidos
+    this.loadTranslatedLevels();
+  }
+
+  /**
+   * Cargar los niveles traducidos desde el JSON de i18n
+   */
+  loadTranslatedLevels(): void {
+    const currentLang = this.currentLanguage;
+    this.translateService.get(`stack.levels`).subscribe((translations) => {
+      this.translatedLevelMap = translations;
+    });
+  }
+
+  /**
+   * Obtener el nivel traducido
+   */
+  getTranslatedLevel(level: string | undefined): string {
+    return level ? this.translatedLevelMap[level] || level : '';
+  }
+
+  /**
+   * Obtener título de educación según idioma actual
+   */
+  getEducationTitle(edu: Education): string {
+    return this.currentLanguage === 'es' ? edu.title : (edu.titleEn || edu.title);
+  }
+
+  /**
+   * Obtener descripción de educación según idioma actual
+   */
+  getEducationDescription(edu: Education): string | undefined {
+    return this.currentLanguage === 'es' ? edu.description : edu.descriptionEn;
+  }
+
+  /**
+   * Obtener título de certificación según idioma actual
+   */
+  getCertificationTitle(cert: Certification): string {
+    return this.currentLanguage === 'es' ? cert.title : (cert.titleEn || cert.title);
   }
 
   // Stack de tecnologías - reemplazar con datos reales
@@ -49,14 +103,17 @@ export class AboutMeDetails implements OnInit {
   education: Education[] = [
     {
       title: 'Inteligencia Artificial y Big Data',
+      titleEn: 'Artificial Intelligence and Big Data',
       institution: 'IES Polígono Sur',
       startYear: 2025,
       endYear: 2026,
       educationType: 'degree',
       description: 'En curso',
+      descriptionEn: 'In progress',
     },
     {
       title: 'Desarrollo de Aplicaciones Web',
+      titleEn: 'Web Application Development',
       institution: 'IES Polígono Sur',
       startYear: 2021,
       endYear: 2023,
@@ -64,6 +121,7 @@ export class AboutMeDetails implements OnInit {
     },
     {
       title: 'Sistemas Microinformáticos y Redes',
+      titleEn: 'IT Systems and Networks',
       institution: 'IES Polígono Sur',
       startYear: 2019,
       endYear: 2021,
@@ -75,24 +133,28 @@ export class AboutMeDetails implements OnInit {
   certifications: Certification[] = [
     {
       title: 'Java EE / Spring Boot',
+      titleEn: 'Java EE / Spring Boot',
       issuer: 'IPartek Formación',
       issuedDate: new Date(2025, 9, 1),
       category: 'framework',
     },
     {
       title: 'Certificado Profesional de Ciberseguridad',
+      titleEn: 'Professional Cybersecurity Certificate',
       issuer: 'Coursera / Google',
       issuedDate: new Date(2025, 6, 1),
       category: 'security',
     },
     {
       title: 'Realidad Virtual y Aumentada',
+      titleEn: 'Virtual and Augmented Reality',
       issuer: 'Integra Conocimiento & Innovación',
       issuedDate: new Date(2025, 3, 1),
       category: 'other',
     },
     {
       title: 'Programación en IA y Big Data',
+      titleEn: 'AI and Big Data Programming',
       issuer: 'Integra Conocimiento & Innovación',
       issuedDate: new Date(2025, 0, 1),
       category: 'programming',
