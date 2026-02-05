@@ -4,11 +4,13 @@
 export interface Education {
   id?: string;
   title: string;
+  titleEn?: string; // Título en inglés para billingüe
   institution: string;
   startYear: number;
   endYear: number;
   educationType: EducationType;
   description?: string;
+  descriptionEn?: string; // Descripción en inglés
   grade?: string; // Nota final o GPA
   logo?: string;
   url?: string; // Link a la institución o certificado

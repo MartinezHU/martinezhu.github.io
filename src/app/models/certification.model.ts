@@ -4,6 +4,7 @@
 export interface Certification {
   id?: string;
   title: string;
+  titleEn?: string; // Título en inglés para billingüe
   issuer: string; // Organización que emite la certificación
   issuedDate: Date;
   expiryDate?: Date; // Fecha de vencimiento (opcional)
@@ -11,6 +12,7 @@ export interface Certification {
   credentialUrl?: string; // URL para verificar la credencial
   logo?: string;
   description?: string;
+  descriptionEn?: string; // Descripción en inglés
   category?: CertificationCategory;
 }
 

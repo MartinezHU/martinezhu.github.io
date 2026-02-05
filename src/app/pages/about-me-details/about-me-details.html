@@ -77,7 +77,7 @@
               <span class="icon is-small">
                 <i class="fas fa-check-circle"></i>
               </span>
-              <span>{{ tech.name }} <span class="has-text-grey-light">{{ tech.level }}</span></span>
+              <span>{{ tech.name }} <span class="has-text-grey-light">{{ getTranslatedLevel(tech.level) }}</span></span>
             </span>
           </div>
         </div>
@@ -101,7 +101,7 @@
               <span class="icon is-small">
                 <i class="fas fa-check-circle"></i>
               </span>
-              <span>{{ tech.name }} <span class="has-text-grey-light">{{ tech.level }}</span></span>
+              <span>{{ tech.name }} <span class="has-text-grey-light">{{ getTranslatedLevel(tech.level) }}</span></span>
             </span>
           </div>
         </div>
@@ -123,7 +123,7 @@
               <span class="icon is-small">
                 <i class="fas fa-check-circle"></i>
               </span>
-              <span>{{ tech.name }} <span class="has-text-grey-light">{{ tech.level }}</span></span>
+              <span>{{ tech.name }} <span class="has-text-grey-light">{{ getTranslatedLevel(tech.level) }}</span></span>
             </span>
           </div>
         </div>
@@ -145,7 +145,7 @@
               <span class="icon is-small">
                 <i class="fas fa-check-circle"></i>
               </span>
-              <span>{{ tech.name }} <span class="has-text-grey-light">{{ tech.level }}</span></span>
+              <span>{{ tech.name }} <span class="has-text-grey-light">{{ getTranslatedLevel(tech.level) }}</span></span>
             </span>
             <span class="tag is-medium is-light">Git</span>
             <span class="tag is-medium is-light">Docker</span>
@@ -201,6 +201,7 @@
               </div>
             </div>
             <h3 class="subtitle is-5 has-text-weight-semibold mb-2">{{ edu.title }}</h3>
+            <p class="is-size-7 has-text-grey mb-1" *ngIf="edu.titleEn">{{ edu.titleEn }}</p>
             <p class="has-text-grey">{{ edu.institution }}</p>
             <p class="has-text-grey-light is-size-7" *ngIf="edu.description">{{ edu.description }}</p>
           </div>
@@ -238,6 +239,7 @@
             </div>
           </div>
           <h3 class="subtitle is-5 has-text-weight-semibold mb-2">{{ cert.title }}</h3>
+          <p class="is-size-7 has-text-grey mb-2" *ngIf="cert.titleEn">{{ cert.titleEn }}</p>
           <p class="has-text-grey mb-2">{{ cert.issuer }}</p>
           <div class="is-size-7 has-text-grey-light mb-3">
             <p>

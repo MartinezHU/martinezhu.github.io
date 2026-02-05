@@ -21,14 +21,51 @@
     "mobile": "Mobile",
     "database": "Databases",
     "devops": "DevOps",
-    "tools": "Tools & Others"
+    "tools": "Tools & Others",
+    "levels": {
+      "advanced": "Advanced",
+      "intermediate": "Intermediate",
+      "beginner": "Beginner"
+    }
   },
   "education": {
-    "title": "Academic Education"
+    "title": "Academic Education",
+    "degrees": {
+      "smartNetworking": {
+        "es": "Sistemas Microinformáticos y Redes",
+        "en": "IT Systems and Networks"
+      },
+      "webApps": {
+        "es": "Desarrollo de Aplicaciones Web",
+        "en": "Web Application Development"
+      },
+      "aiAndBigData": {
+        "es": "Inteligencia Artificial y Big Data",
+        "en": "Artificial Intelligence and Big Data"
+      }
+    }
   },
   "certifications": {
     "title": "Certifications & Achievements",
-    "viewCredential": "View credential"
+    "viewCredential": "View credential",
+    "certs": {
+      "springBoot": {
+        "es": "Java EE / Spring Boot",
+        "en": "Java EE / Spring Boot"
+      },
+      "cybersecurity": {
+        "es": "Certificado Profesional de Ciberseguridad",
+        "en": "Professional Cybersecurity Certificate"
+      },
+      "vr": {
+        "es": "Realidad Virtual y Aumentada",
+        "en": "Virtual and Augmented Reality"
+      },
+      "aiBigData": {
+        "es": "Programación en IA y Big Data",
+        "en": "AI and Big Data Programming"
+      }
+    }
   },
   "breadcrumb": {
     "home": "Home",
