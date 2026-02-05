@@ -67,6 +67,12 @@
             </div>
             <div class="level-right">
               <div class="level-item">
+                <button [routerLink]="['/projects', project.id]" class="button is-small is-primary mr-2">
+                  <span class="icon is-small">
+                    <i class="fas fa-info-circle"></i>
+                  </span>
+                  <span>{{ 'projects.viewDetails' | translate }}</span>
+                </button>
                 <a *ngIf="project.repoUrl" [href]="project.repoUrl" target="_blank" class="button is-small is-light is-outlined mr-2">
                   <span class="icon is-small">
                     <i class="fab fa-github"></i>

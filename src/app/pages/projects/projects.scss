@@ -1,5 +1,30 @@
 @use '../../../styles/variables' as *;
 
+:host ::ng-deep .breadcrumb.section {
+  background-color: transparent;
+  padding-top: 6rem !important;
+  padding-bottom: 0 !important;
+  
+  ul {
+    li {
+      a, span {
+        color: $grey-silver;
+        transition: color 0.2s ease;
+        cursor: pointer;
+
+        &:hover {
+          color: $red-elegant;
+        }
+      }
+
+      &.is-active span {
+        color: $white-pure;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
 .projects-section {
   background-color: $grey-carbon;
   color: $white-pure;

@@ -1,5 +1,30 @@
 @use '../../../styles/variables' as *;
 
+:host ::ng-deep .breadcrumb.section {
+  background-color: transparent;
+  padding-top: 6rem !important;
+  padding-bottom: 0 !important;
+  
+  ul {
+    li {
+      a, span {
+        color: $grey-silver;
+        transition: color 0.2s ease;
+        cursor: pointer;
+
+        &:hover {
+          color: $red-elegant;
+        }
+      }
+
+      &.is-active span {
+        color: $white-pure;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
 .project-details-section {
   background-color: $grey-carbon;
   color: $white-pure;
@@ -25,7 +50,7 @@
   }
 
   .has-text-grey-light {
-    color: $grey-steel !important;
+    color: $grey-silver !important;
   }
 
   .tag {
@@ -35,8 +60,9 @@
     transition: all 0.2s ease;
 
     &.is-light {
-      background-color: rgba($white-pure, 0.1);
+      background-color: $grey-anthracite;
       color: $white-pure;
+      border: 1px solid $grey-anthracite;
     }
 
     &.is-medium {
@@ -82,15 +108,12 @@
     transition: all 0.3s ease;
 
     &.quick-info {
-      position: sticky;
-      top: 2rem;
-
       p {
         color: $white-pure;
       }
 
       .has-text-grey-light {
-        color: $grey-steel !important;
+        color: $grey-silver !important;
       }
     }
   }

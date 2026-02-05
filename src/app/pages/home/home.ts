@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { Hero } from '../../components/shared/hero/hero';
 import { TranslateModule } from '@ngx-translate/core';
 import { I18nService } from '../../services/i18n.service';
+import { GitHubService } from '../../services/github.service';
 import { Project } from '../../models';
 
 @Component({
@@ -14,49 +15,12 @@ import { Project } from '../../models';
 })
 export class Home implements OnInit {
   currentLanguage: string = 'es';
+  projects: Project[] = [];
 
-  // Array de proyectos destacados
-  projects: Project[] = [
-    {
-      id: '1',
-      title: 'Gestor de Tareas',
-      titleEn: 'Task Manager',
-      description: 'Aplicación web para gestionar tareas y proyectos personales',
-      descriptionEn: 'Web application to manage personal tasks and projects',
-      technologies: ['Angular', 'TypeScript', 'Bulma CSS', 'RxJS'],
-      featured: true,
-      repoUrl: 'https://github.com/MartinezHU/task-manager',
-      demoUrl: 'https://task-manager-demo.vercel.app',
-      status: 'completed',
-      category: 'web',
-    },
-    {
-      id: '2',
-      title: 'API REST con Python',
-      titleEn: 'REST API with Python',
-      description: 'API RESTful desarrollada con Django y Django REST Framework',
-      descriptionEn: 'RESTful API developed with Django and Django REST Framework',
-      technologies: ['Python', 'Django', 'Django REST Framework', 'PostgreSQL', 'JWT'],
-      featured: true,
-      repoUrl: 'https://github.com/MartinezHU/rest-api-python',
-      status: 'completed',
-      category: 'web',
-    },
-    {
-      id: '3',
-      title: 'App Móvil Flutter',
-      titleEn: 'Flutter Mobile App',
-      description: 'Aplicación móvil multiplataforma con Flutter',
-      descriptionEn: 'Cross-platform mobile application with Flutter',
-      technologies: ['Flutter', 'Dart', 'Firebase', 'SQLite'],
-      featured: true,
-      repoUrl: 'https://github.com/MartinezHU/flutter-app',
-      status: 'completed',
-      category: 'mobile',
-    },
-  ];
-
-  constructor(public i18nService: I18nService) {
+  constructor(
+    public i18nService: I18nService,
+    private githubService: GitHubService
+  ) {
     this.currentLanguage = this.i18nService.getCurrentLanguage();
   }
 
@@ -64,6 +28,18 @@ export class Home implements OnInit {
     // Suscribirse a cambios de idioma
     this.i18nService.currentLanguage$.subscribe((lang) => {
       this.currentLanguage = lang;
+    });
+
+    // Cargar proyectos destacados desde GitHub
+    this.githubService.getRepos().subscribe({
+      next: (allProjects) => {
+        // Mostrar solo los primeros 3 proyectos destacados
+        this.projects = allProjects.filter(p => p.featured).slice(0, 3);
+      },
+      error: (error) => {
+        console.error('Error al cargar proyectos:', error);
+        this.projects = [];
+      }
     });
   }
 
