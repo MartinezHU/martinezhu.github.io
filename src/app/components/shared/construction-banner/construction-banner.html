@@ -1,0 +1,11 @@
+<div class="construction-banner" *ngIf="isVisible()">
+  <div class="banner-content">
+    <span class="banner-icon">🚧</span>
+    <span class="banner-text">
+      {{ currentLanguage() === 'es' ? 'Web en construcción' : 'Website under construction' }}
+    </span>
+    <button class="banner-close" (click)="closeBanner()" aria-label="Cerrar banner">
+      ✕
+    </button>
+  </div>
+</div>
