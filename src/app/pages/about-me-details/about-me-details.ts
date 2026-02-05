@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -13,10 +13,11 @@ import { TechStack, TechCategory, Education, EducationType, Certification, Certi
   templateUrl: './about-me-details.html',
   styleUrl: './about-me-details.scss',
 })
-export class AboutMeDetails implements OnInit {
+export class AboutMeDetails implements OnInit, AfterViewInit {
   currentLanguage: string = 'es';
   translatedLevelMap: { [key: string]: string } = {};
   lastSection: string = 'top';
+  loading: boolean = true;
 
   constructor(
     private viewportScroller: ViewportScroller,
@@ -29,9 +30,6 @@ export class AboutMeDetails implements OnInit {
   }
 
   ngOnInit() {
-    // Scroll a la parte superior de la página
-    this.viewportScroller.scrollToPosition([0, 0]);
-
     // Suscribirse a cambios de idioma
     this.i18nService.currentLanguage$.subscribe((lang) => {
       this.currentLanguage = lang;
@@ -43,12 +41,21 @@ export class AboutMeDetails implements OnInit {
   }
 
   /**
+   * Se ejecuta después de que el DOM esté completamente renderizado
+   */
+  ngAfterViewInit() {
+    // El router ya hace scroll al top automáticamente
+  }
+
+  /**
    * Cargar los niveles traducidos desde el JSON de i18n
    */
   loadTranslatedLevels(): void {
     const currentLang = this.currentLanguage;
     this.translateService.get(`stack.levels`).subscribe((translations) => {
       this.translatedLevelMap = translations;
+      // Marcar como cargado una vez que las traducciones estén disponibles
+      this.loading = false;
     });
   }
 

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, RouterLink, Router } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -14,7 +14,7 @@ import { Project } from '../../models';
   templateUrl: './project-details.html',
   styleUrl: './project-details.scss',
 })
-export class ProjectDetails implements OnInit {
+export class ProjectDetails implements OnInit, AfterViewInit {
   currentLanguage: string = 'es';
   project: Project | undefined;
   projects: Project[] = [];
@@ -36,9 +36,6 @@ export class ProjectDetails implements OnInit {
   }
 
   ngOnInit() {
-    // Scroll a la parte superior de la página
-    this.viewportScroller.scrollToPosition([0, 0]);
-
     // Suscribirse a cambios de idioma
     this.i18nService.currentLanguage$.subscribe((lang) => {
       this.currentLanguage = lang;
@@ -70,6 +67,13 @@ export class ProjectDetails implements OnInit {
         this.router.navigate(['/projects']);
       }
     });
+  }
+
+  /**
+   * Se ejecuta después de que el DOM esté completamente renderizado
+   */
+  ngAfterViewInit() {
+    // El router ya hace scroll al top automáticamente
   }
 
   /**
