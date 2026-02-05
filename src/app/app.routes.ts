@@ -6,9 +6,9 @@ import { Projects } from './pages/projects/projects';
 import { ProjectDetails } from './pages/project-details/project-details';
 
 export const routes: Routes = [
-  { path: '', component: Home },
-  { path: 'about-me', component: AboutMe },
-  { path: 'about-me-details', component: AboutMeDetails },
-  { path: 'projects', component: Projects },
-  { path: 'projects/:id', component: ProjectDetails },
+  { path: '', component: Home, data: { animation: 'HomePage' } },
+  { path: 'about-me', component: AboutMe, data: { animation: 'AboutMePage' } },
+  { path: 'about-me-details', component: AboutMeDetails, data: { animation: 'AboutMeDetailsPage' } },
+  { path: 'projects', component: Projects, data: { animation: 'ProjectsPage' } },
+  { path: 'projects/:id', component: ProjectDetails, data: { animation: 'ProjectDetailsPage' } },
 ];
