@@ -75,8 +75,11 @@
             </span>
           </h3>
           <div class="tags">
-            <span class="tag is-medium is-light" *ngFor="let skill of getCategorySkills('frontend')">
-              {{ skill.name }}
+            <span class="tag is-medium is-light" *ngFor="let tech of getTechByCategory('frontend')" [title]="tech.description">
+              <span class="icon is-small">
+                <i class="fas fa-check-circle"></i>
+              </span>
+              <span>{{ tech.name }} <span class="has-text-grey-light">{{ tech.level }}</span></span>
             </span>
           </div>
         </div>
@@ -96,8 +99,11 @@
             </span>
           </h3>
           <div class="tags">
-            <span class="tag is-medium is-light" *ngFor="let skill of getCategorySkills('backend')">
-              {{ skill.name }}
+            <span class="tag is-medium is-light" *ngFor="let tech of getTechByCategory('backend')" [title]="tech.description">
+              <span class="icon is-small">
+                <i class="fas fa-check-circle"></i>
+              </span>
+              <span>{{ tech.name }} <span class="has-text-grey-light">{{ tech.level }}</span></span>
             </span>
           </div>
         </div>
@@ -115,8 +121,11 @@
             </span>
           </h3>
           <div class="tags">
-            <span class="tag is-medium is-light" *ngFor="let skill of getCategorySkills('mobile')">
-              {{ skill.name }}
+            <span class="tag is-medium is-light" *ngFor="let tech of getTechByCategory('mobile')" [title]="tech.description">
+              <span class="icon is-small">
+                <i class="fas fa-check-circle"></i>
+              </span>
+              <span>{{ tech.name }} <span class="has-text-grey-light">{{ tech.level }}</span></span>
             </span>
           </div>
         </div>
@@ -134,8 +143,11 @@
             </span>
           </h3>
           <div class="tags">
-            <span class="tag is-medium is-light" *ngFor="let skill of getCategorySkills('tools')">
-              {{ skill.name }}
+            <span class="tag is-medium is-light" *ngFor="let tech of getTechByCategory('tools')" [title]="tech.description">
+              <span class="icon is-small">
+                <i class="fas fa-check-circle"></i>
+              </span>
+              <span>{{ tech.name }} <span class="has-text-grey-light">{{ tech.level }}</span></span>
             </span>
             <span class="tag is-medium is-light">Git</span>
             <span class="tag is-medium is-light">Docker</span>
@@ -158,7 +170,7 @@
 
     <div class="timeline">
       <div class="timeline-item" *ngFor="let edu of education">
-        <div class="timeline-marker" [class.is-primary]="edu.type === 'degree'"></div>
+        <div class="timeline-marker" [class.is-primary]="edu.educationType === 'degree'" [class.is-info]="edu.educationType === 'master'"></div>
         <div class="timeline-content">
           <div class="box education-box">
             <div class="level is-mobile">
@@ -166,36 +178,95 @@
                 <div class="level-item">
                   <span
                     class="icon is-large"
-                    [class.has-text-primary]="edu.type === 'degree'"
-                    [class.has-text-info]="edu.type === 'certification'"
+                    [class.has-text-primary]="edu.educationType === 'degree'"
+                    [class.has-text-info]="edu.educationType === 'master'"
+                    [class.has-text-warning]="edu.educationType === 'bootcamp'"
+                    [class.has-text-success]="edu.educationType === 'certification'"
                   >
                     <i
                       class="fas fa-2x"
-                      [class.fa-graduation-cap]="edu.type === 'degree'"
-                      [class.fa-certificate]="edu.type === 'certification'"
-                      [class.fa-book]="edu.type === 'course'"
+                      [class.fa-graduation-cap]="edu.educationType === 'degree'"
+                      [class.fa-book]="edu.educationType === 'master'"
+                      [class.fa-rocket]="edu.educationType === 'bootcamp'"
+                      [class.fa-certificate]="edu.educationType === 'certification'"
+                      [class.fa-scroll]="edu.educationType === 'diploma'"
+                      [class.fa-video]="edu.educationType === 'course'"
                     ></i>
                   </span>
                 </div>
               </div>
               <div class="level-right">
                 <div class="level-item">
-                  <span class="tag is-medium">{{ edu.year }}</span>
+                  <span class="tag is-medium">{{ edu.startYear }}-{{ edu.endYear }}</span>
+                  <span class="tag is-medium is-light ml-2" *ngIf="edu.grade">{{ edu.grade }}</span>
                 </div>
               </div>
             </div>
             <h3 class="subtitle is-5 has-text-weight-semibold mb-2">{{ edu.title }}</h3>
             <p class="has-text-grey">{{ edu.institution }}</p>
+            <p class="has-text-grey-light is-size-7" *ngIf="edu.description">{{ edu.description }}</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="has-text-centered mt-6">
-      <p class="content is-size-6 has-text-grey">
-        <strong>[Placeholder]</strong> - Esta lista se actualizará con toda mi formación completa,
-        incluyendo certificaciones, cursos y talleres relevantes.
-      </p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- Sección Certificaciones -->
+<section class="section certifications-section">
+  <div class="container">
+    <h2 class="title is-3 has-text-centered mb-6">
+      <span class="has-text-primary">Certificaciones</span> & Logros
+    </h2>
+
+    <div class="columns is-multiline">
+      <div class="column is-6" *ngFor="let cert of getSortedCertifications()">
+        <div class="box certification-box">
+          <div class="level is-mobile mb-4">
+            <div class="level-left">
+              <div class="level-item">
+                <span class="icon is-large has-text-primary">
+                  <i class="fas fa-2x fa-certificate"></i>
+                </span>
+              </div>
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+                <span class="tag is-small is-light" *ngIf="cert.category">{{ cert.category }}</span>
+              </div>
+            </div>
+          </div>
+          <h3 class="subtitle is-5 has-text-weight-semibold mb-2">{{ cert.title }}</h3>
+          <p class="has-text-grey mb-2">{{ cert.issuer }}</p>
+          <div class="is-size-7 has-text-grey-light mb-3">
+            <p>
+              <i class="fas fa-calendar-alt mr-2"></i>
+              {{ cert.issuedDate | date: 'MMM yyyy' }}
+              <span *ngIf="cert.expiryDate"> - {{ cert.expiryDate | date: 'MMM yyyy' }}</span>
+            </p>
+            <p *ngIf="cert.credentialId">
+              <i class="fas fa-id-badge mr-2"></i>
+              {{ cert.credentialId }}
+            </p>
+          </div>
+          <div class="level is-mobile">
+            <div class="level-left"></div>
+            <div class="level-right">
+              <div class="level-item">
+                <a *ngIf="cert.credentialUrl" [href]="cert.credentialUrl" target="_blank" class="button is-small is-light is-outlined">
+                  <span class="icon is-small">
+                    <i class="fas fa-external-link-alt"></i>
+                  </span>
+                  <span>Ver credencial</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
