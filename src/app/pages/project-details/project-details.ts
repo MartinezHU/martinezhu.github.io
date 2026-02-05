@@ -2,9 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, RouterLink, Router } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { I18nService } from '../../services/i18n.service';
-import { GitHubService } from '../../services/github.service';
+import { ProjectsDataService } from '../../services/projects-data.service';
 import { NavigationService } from '../../services/navigation.service';
 import { Project } from '../../models';
 
@@ -25,8 +25,7 @@ export class ProjectDetails implements OnInit, AfterViewInit {
     private router: Router,
     private viewportScroller: ViewportScroller,
     public i18nService: I18nService,
-    private translateService: TranslateService,
-    private githubService: GitHubService,
+    private projectsDataService: ProjectsDataService,
     private navigationService: NavigationService
   ) {
     this.currentLanguage = this.i18nService.getCurrentLanguage();
@@ -42,7 +41,7 @@ export class ProjectDetails implements OnInit, AfterViewInit {
     });
 
     // Cargar proyectos y luego buscar el proyecto específico
-    this.githubService.getRepos().subscribe({
+    this.projectsDataService.getProjects().subscribe({
       next: (projects) => {
         this.projects = projects;
         this.loadProject();
