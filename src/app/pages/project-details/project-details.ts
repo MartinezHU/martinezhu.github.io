@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink, Router } from '@angular/router';
-import { ViewportScroller } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { I18nService } from '../../services/i18n.service';
 import { ProjectsDataService } from '../../services/projects-data.service';
 import { NavigationService } from '../../services/navigation.service';
 import { Project } from '../../models';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-project-details',
@@ -14,7 +14,9 @@ import { Project } from '../../models';
   templateUrl: './project-details.html',
   styleUrl: './project-details.scss',
 })
-export class ProjectDetails implements OnInit, AfterViewInit {
+export class ProjectDetails implements OnInit {
+  private readonly destroyRef = inject(DestroyRef);
+
   currentLanguage: string = 'es';
   project: Project | undefined;
   projects: Project[] = [];
@@ -23,7 +25,6 @@ export class ProjectDetails implements OnInit, AfterViewInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private viewportScroller: ViewportScroller,
     public i18nService: I18nService,
     private projectsDataService: ProjectsDataService,
     private navigationService: NavigationService
@@ -36,9 +37,11 @@ export class ProjectDetails implements OnInit, AfterViewInit {
 
   ngOnInit() {
     // Suscribirse a cambios de idioma
-    this.i18nService.currentLanguage$.subscribe((lang) => {
-      this.currentLanguage = lang;
-    });
+    this.i18nService.currentLanguage$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((lang) => {
+        this.currentLanguage = lang;
+      });
 
     // Cargar proyectos y luego buscar el proyecto específico
     this.projectsDataService.getProjects().subscribe({
@@ -57,22 +60,17 @@ export class ProjectDetails implements OnInit, AfterViewInit {
    * Cargar el proyecto específico basado en el ID de la ruta
    */
   loadProject(): void {
-    this.route.params.subscribe((params) => {
-      const projectId = params['id'];
-      this.project = this.projects.find((p) => p.id === projectId);
+    this.route.params
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((params) => {
+        const projectId = params['id'];
+        this.project = this.projects.find((p) => p.id === projectId);
 
-      if (!this.project) {
-        // Redirigir a proyectos si no existe
-        this.router.navigate(['/projects']);
-      }
-    });
-  }
-
-  /**
-   * Se ejecuta después de que el DOM esté completamente renderizado
-   */
-  ngAfterViewInit() {
-    // El router ya hace scroll al top automáticamente
+        if (!this.project) {
+          // Redirigir a proyectos si no existe
+          this.router.navigate(['/projects']);
+        }
+      });
   }
 
   /**

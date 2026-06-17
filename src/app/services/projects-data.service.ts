@@ -13,6 +13,7 @@ interface ProjectJsonItem {
   name: string;
   full_name: string;
   url: string;
+  demo_url?: string;
   description: string | null;
   languages: ProjectJsonLanguage[];
   why_interesting: string;
@@ -27,11 +28,11 @@ export class ProjectsDataService {
 
   getProjects(): Observable<Project[]> {
     const items = projectsData as ProjectJsonItem[];
-    const projects = items.map((item, index) => this.mapJsonToProject(item, index));
+    const projects = items.map((item) => this.mapJsonToProject(item));
     return of(projects);
   }
 
-  private mapJsonToProject(item: ProjectJsonItem, index: number): Project {
+  private mapJsonToProject(item: ProjectJsonItem): Project {
     const technologies = this.buildTechnologies(item);
     const title = this.formatRepoName(item.name);
     const description = item.description || item.why_interesting || 'Proyecto personal.';
@@ -47,6 +48,7 @@ export class ProjectsDataService {
       technologies,
       featured: true,
       repoUrl: item.url,
+      demoUrl: item.demo_url,
       status: 'completed',
       category: this.inferCategory(item)
     };

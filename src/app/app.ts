@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, NavigationEnd, ChildrenOutletContexts } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
@@ -8,6 +8,7 @@ import { ConstructionBanner } from "./components/shared/construction-banner/cons
 import { FEATURE_FLAGS } from './config/feature-flags';
 import { I18nService } from './services/i18n.service';
 import { filter } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
@@ -25,6 +26,8 @@ import { trigger, transition, style, animate } from '@angular/animations';
   ]
 })
 export class App implements OnInit {
+  private readonly destroyRef = inject(DestroyRef);
+
   protected readonly title = 'web-personal';
   protected readonly showConstructionBanner = FEATURE_FLAGS.showConstructionBanner;
 
@@ -40,7 +43,10 @@ export class App implements OnInit {
 
     // Scroll al top cuando navega a una nueva ruta (pero no con anclas)
     this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
+      .pipe(
+        filter(event => event instanceof NavigationEnd),
+        takeUntilDestroyed(this.destroyRef)
+      )
       .subscribe((event: NavigationEnd) => {
         // Solo hacer scroll al top si no es navegación con ancla
         if (!event.urlAfterRedirects.includes('#')) {

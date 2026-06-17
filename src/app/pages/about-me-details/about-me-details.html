@@ -17,8 +17,8 @@
         <figure class="image is-256x256 is-inline-block">
           <img
             class="is-rounded"
-            src="https://via.placeholder.com/256"
-            alt="Foto de perfil"
+            src="/img/fotoperfil.png"
+            alt="Caricatura de perfil de Héctor Martínez"
           />
         </figure>
       </div>
@@ -131,6 +131,94 @@
         </div>
       </div>
 
+      <!-- Data & AI -->
+      <div class="column is-6">
+        <div class="box tech-category-box">
+          <h3 class="subtitle is-4 has-text-weight-semibold mb-4">
+            <span class="icon-text">
+              <span class="icon has-text-primary">
+                <i class="fas fa-brain"></i>
+              </span>
+              <span>{{ 'stack.dataAi' | translate }}</span>
+            </span>
+          </h3>
+          <div class="tags">
+            <span class="tag is-medium is-light" *ngFor="let tech of getTechByCategory('data-ai')" [title]="tech.description">
+              <span class="icon is-small">
+                <i class="fas fa-check-circle"></i>
+              </span>
+              <span>{{ tech.name }} <span class="has-text-grey-light">{{ getTranslatedLevel(tech.level) }}</span></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Big Data & Cloud -->
+      <div class="column is-6">
+        <div class="box tech-category-box">
+          <h3 class="subtitle is-4 has-text-weight-semibold mb-4">
+            <span class="icon-text">
+              <span class="icon has-text-primary">
+                <i class="fas fa-database"></i>
+              </span>
+              <span>{{ 'stack.bigDataCloud' | translate }}</span>
+            </span>
+          </h3>
+          <div class="tags">
+            <span class="tag is-medium is-light" *ngFor="let tech of getTechByCategory('big-data')" [title]="tech.description">
+              <span class="icon is-small">
+                <i class="fas fa-check-circle"></i>
+              </span>
+              <span>{{ tech.name }} <span class="has-text-grey-light">{{ getTranslatedLevel(tech.level) }}</span></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Databases -->
+      <div class="column is-6">
+        <div class="box tech-category-box">
+          <h3 class="subtitle is-4 has-text-weight-semibold mb-4">
+            <span class="icon-text">
+              <span class="icon has-text-primary">
+                <i class="fas fa-table"></i>
+              </span>
+              <span>{{ 'stack.database' | translate }}</span>
+            </span>
+          </h3>
+          <div class="tags">
+            <span class="tag is-medium is-light" *ngFor="let tech of getTechByCategory('database')" [title]="tech.description">
+              <span class="icon is-small">
+                <i class="fas fa-check-circle"></i>
+              </span>
+              <span>{{ tech.name }} <span class="has-text-grey-light">{{ getTranslatedLevel(tech.level) }}</span></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DevOps -->
+      <div class="column is-6">
+        <div class="box tech-category-box">
+          <h3 class="subtitle is-4 has-text-weight-semibold mb-4">
+            <span class="icon-text">
+              <span class="icon has-text-primary">
+                <i class="fas fa-gears"></i>
+              </span>
+              <span>{{ 'stack.devops' | translate }}</span>
+            </span>
+          </h3>
+          <div class="tags">
+            <span class="tag is-medium is-light" *ngFor="let tech of getTechByCategory('devops')" [title]="tech.description">
+              <span class="icon is-small">
+                <i class="fas fa-check-circle"></i>
+              </span>
+              <span>{{ tech.name }} <span class="has-text-grey-light">{{ getTranslatedLevel(tech.level) }}</span></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
       <!-- Tools & Others -->
       <div class="column is-6">
         <div class="box tech-category-box">
@@ -150,7 +238,6 @@
               <span>{{ tech.name }} <span class="has-text-grey-light">{{ getTranslatedLevel(tech.level) }}</span></span>
             </span>
             <span class="tag is-medium is-light">Git</span>
-            <span class="tag is-medium is-light">Docker</span>
             <span class="tag is-medium is-light">VS Code</span>
           </div>
         </div>
@@ -256,7 +343,7 @@
             <div class="level-left"></div>
             <div class="level-right">
               <div class="level-item">
-                <a *ngIf="cert.credentialUrl" [href]="cert.credentialUrl" target="_blank" class="button is-small is-light is-outlined">
+                <a *ngIf="cert.credentialUrl" [href]="cert.credentialUrl" target="_blank" rel="noopener noreferrer" class="button is-small is-light is-outlined">
                   <span class="icon is-small">
                     <i class="fas fa-external-link-alt"></i>
                   </span>

@@ -46,13 +46,13 @@
         </div>
         <div class="level-right">
           <div class="level-item">
-            <a *ngIf="project.repoUrl" [href]="project.repoUrl" target="_blank" class="button is-light is-outlined mr-2">
+            <a *ngIf="project.repoUrl" [href]="project.repoUrl" target="_blank" rel="noopener noreferrer" class="button is-light is-outlined mr-2">
               <span class="icon">
                 <i class="fab fa-github"></i>
               </span>
               <span>{{ 'projects.viewRepo' | translate }}</span>
             </a>
-            <a *ngIf="project.demoUrl" [href]="project.demoUrl" target="_blank" class="button is-primary is-outlined">
+            <a *ngIf="project.demoUrl" [href]="project.demoUrl" target="_blank" rel="noopener noreferrer" class="button is-primary is-outlined">
               <span class="icon">
                 <i class="fas fa-external-link-alt"></i>
               </span>

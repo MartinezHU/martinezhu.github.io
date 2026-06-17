@@ -1,14 +1,22 @@
 <nav class="navbar is-fixed-top has-shadow" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item logo" href="#"> </a>
+    <a
+      class="navbar-item logo"
+      [routerLink]="['/']"
+      fragment="top"
+      aria-label="Héctor Martínez"
+      (click)="goToHomeSection('top')"
+    ></a>
 
     <!-- Burger visible en móvil -->
     <a
       role="button"
       class="navbar-burger"
+      [class.is-active]="isMenuOpen"
       aria-label="menu"
-      aria-expanded="false"
+      [attr.aria-expanded]="isMenuOpen"
       data-target="navbarMenu"
+      (click)="toggleMenu()"
     >
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -16,13 +24,13 @@
     </a>
   </div>
 
-  <div id="navbarMenu" class="navbar-menu">
+  <div id="navbarMenu" class="navbar-menu" [class.is-active]="isMenuOpen">
     <div class="navbar-end">
-      <a class="button-48 navbar-item" href="#top">{{ 'header.nav.home' | translate }}</a>
-      <a class="button-48 navbar-item" href="#about-me">{{ 'header.nav.about' | translate }}</a>
-      <a class="button-48 navbar-item" href="#projects">{{ 'header.nav.projects' | translate }}</a>
-      <a class="button-48 navbar-item" href="#cv">{{ 'header.nav.cv' | translate }}</a>
-      <a class="button-48 navbar-item" href="#contact">{{ 'header.nav.contact' | translate }}</a>
+      <a class="button-48 navbar-item" [routerLink]="['/']" fragment="top" (click)="goToHomeSection('top')">{{ 'header.nav.home' | translate }}</a>
+      <a class="button-48 navbar-item" [routerLink]="['/']" fragment="about-me" (click)="goToHomeSection('about-me')">{{ 'header.nav.about' | translate }}</a>
+      <a class="button-48 navbar-item" [routerLink]="['/']" fragment="projects" (click)="goToHomeSection('projects')">{{ 'header.nav.projects' | translate }}</a>
+      <a class="button-48 navbar-item" routerLink="/about-me-details" (click)="closeMenu()">{{ 'header.nav.cv' | translate }}</a>
+      <a class="button-48 navbar-item" [routerLink]="['/']" fragment="contact" (click)="goToHomeSection('contact')">{{ 'header.nav.contact' | translate }}</a>
 
       <!-- Selector de idioma -->
       <div class="navbar-item">

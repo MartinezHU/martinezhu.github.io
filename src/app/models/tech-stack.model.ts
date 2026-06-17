@@ -18,6 +18,8 @@ export type TechCategory =
   | 'frontend'
   | 'backend'
   | 'mobile'
+  | 'data-ai'
+  | 'big-data'
   | 'database'
   | 'devops'
   | 'tools'

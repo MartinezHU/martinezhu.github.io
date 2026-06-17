@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, ActivatedRoute } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
@@ -8,6 +8,7 @@ import { I18nService } from '../../services/i18n.service';
 import { ProjectsDataService } from '../../services/projects-data.service';
 import { NavigationService } from '../../services/navigation.service';
 import { Project } from '../../models';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,8 @@ import { Project } from '../../models';
   styleUrl: './home.scss',
 })
 export class Home implements OnInit {
+  private readonly destroyRef = inject(DestroyRef);
+
   currentLanguage: string = 'es';
   projects: Project[] = [];
 
@@ -31,23 +34,27 @@ export class Home implements OnInit {
 
   ngOnInit() {
     // Manejar navegación con fragments (ej: /#projects)
-    this.route.fragment.subscribe((fragment) => {
-      if (fragment) {
-        // Usar setTimeout para asegurar que el DOM esté renderizado
-        setTimeout(() => {
-          this.viewportScroller.scrollToAnchor(fragment);
-        }, 100);
-        // Guardar en el servicio la sección actual
-        this.navigationService.setLastSection(fragment);
-      }
-    });
+    this.route.fragment
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((fragment) => {
+        if (fragment) {
+          // Usar setTimeout para asegurar que el DOM esté renderizado
+          setTimeout(() => {
+            this.viewportScroller.scrollToAnchor(fragment);
+          }, 100);
+          // Guardar en el servicio la sección actual
+          this.navigationService.setLastSection(fragment);
+        }
+      });
 
     // Suscribirse a cambios de idioma
-    this.i18nService.currentLanguage$.subscribe((lang) => {
-      this.currentLanguage = lang;
-    });
+    this.i18nService.currentLanguage$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((lang) => {
+        this.currentLanguage = lang;
+      });
 
-    // Cargar proyectos destacados desde GitHub
+    // Cargar proyectos destacados desde datos locales
     this.projectsDataService.getProjects().subscribe({
       next: (allProjects) => {
         // Mostrar solo los primeros 3 proyectos destacados

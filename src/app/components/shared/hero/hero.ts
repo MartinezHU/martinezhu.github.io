@@ -1,9 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+import { NavigationService } from '../../../services/navigation.service';
 
 @Component({
   selector: 'app-hero',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, TranslateModule],
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
 })
@@ -20,6 +23,8 @@ export class Hero implements OnInit {
     "const api = await fetch('/data');",
   ];
 
+  constructor(private navigationService: NavigationService) {}
+
   ngOnInit() {
     for (let i = 0; i < 20; i++) {
       const randomTop = Math.floor(Math.random() * 90) + "%";
@@ -28,5 +33,9 @@ export class Hero implements OnInit {
       const randomDelay = (Math.random() * 20) + "s";
       this.codeLines.push({ text: randomCode, top: randomTop, left: randomLeft, delay: randomDelay });
     }
+  }
+
+  saveSection(section: string): void {
+    this.navigationService.setLastSection(section);
   }
 }

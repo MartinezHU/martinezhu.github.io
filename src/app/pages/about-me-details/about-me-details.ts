@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ViewportScroller } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { I18nService } from '../../services/i18n.service';
 import { NavigationService } from '../../services/navigation.service';
 import { TechStack, TechCategory, Education, EducationType, Certification, CertificationCategory } from '../../models';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-about-me-details',
@@ -13,14 +13,15 @@ import { TechStack, TechCategory, Education, EducationType, Certification, Certi
   templateUrl: './about-me-details.html',
   styleUrl: './about-me-details.scss',
 })
-export class AboutMeDetails implements OnInit, AfterViewInit {
+export class AboutMeDetails implements OnInit {
+  private readonly destroyRef = inject(DestroyRef);
+
   currentLanguage: string = 'es';
   translatedLevelMap: { [key: string]: string } = {};
   lastSection: string = 'top';
   loading: boolean = true;
 
   constructor(
-    private viewportScroller: ViewportScroller,
     public i18nService: I18nService,
     private translateService: TranslateService,
     private navigationService: NavigationService
@@ -31,32 +32,28 @@ export class AboutMeDetails implements OnInit, AfterViewInit {
 
   ngOnInit() {
     // Suscribirse a cambios de idioma
-    this.i18nService.currentLanguage$.subscribe((lang) => {
-      this.currentLanguage = lang;
-      this.loadTranslatedLevels();
-    });
+    this.i18nService.currentLanguage$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((lang) => {
+        this.currentLanguage = lang;
+        this.loadTranslatedLevels();
+      });
 
     // Cargar niveles traducidos
     this.loadTranslatedLevels();
   }
 
   /**
-   * Se ejecuta después de que el DOM esté completamente renderizado
-   */
-  ngAfterViewInit() {
-    // El router ya hace scroll al top automáticamente
-  }
-
-  /**
    * Cargar los niveles traducidos desde el JSON de i18n
    */
   loadTranslatedLevels(): void {
-    const currentLang = this.currentLanguage;
-    this.translateService.get(`stack.levels`).subscribe((translations) => {
-      this.translatedLevelMap = translations;
-      // Marcar como cargado una vez que las traducciones estén disponibles
-      this.loading = false;
-    });
+    this.translateService.get(`stack.levels`)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((translations) => {
+        this.translatedLevelMap = translations;
+        // Marcar como cargado una vez que las traducciones estén disponibles
+        this.loading = false;
+      });
   }
 
   /**
@@ -87,18 +84,33 @@ export class AboutMeDetails implements OnInit, AfterViewInit {
     return this.currentLanguage === 'es' ? cert.title : (cert.titleEn || cert.title);
   }
 
-  // Stack de tecnologías - reemplazar con datos reales
+  // Stack de tecnologías
   techStack: TechStack[] = [
     { name: 'Angular', category: 'frontend', level: 'advanced', description: 'Aplicaciones web SPA' },
     { name: 'Vue.js', category: 'frontend', level: 'intermediate', description: 'Interfaces web modernas' },
     { name: 'TypeScript', category: 'frontend', level: 'advanced', description: 'Tipado estático en frontend' },
     { name: 'Flutter', category: 'mobile', level: 'intermediate', description: 'Apps móviles multiplataforma' },
+    { name: 'Dart', category: 'mobile', level: 'intermediate', description: 'Lenguaje principal en proyectos Flutter' },
+    { name: 'Android Studio', category: 'mobile', level: 'intermediate', description: 'Desarrollo, emulación y depuración Android' },
+    { name: 'Android Emulator', category: 'mobile', level: 'intermediate', description: 'Pruebas en dispositivos virtuales' },
     { name: 'Python', category: 'backend', level: 'advanced', description: 'Django y Django REST Framework (DRF)' },
     { name: '.NET (C#)', category: 'backend', level: 'intermediate', description: 'APIs REST' },
     { name: 'REST APIs', category: 'backend', level: 'advanced', description: 'DRF y buenas prácticas' },
     { name: 'JWT', category: 'backend', level: 'intermediate', description: 'Autenticación y autorización' },
     { name: 'OAuth2', category: 'backend', level: 'intermediate', description: 'Flujos de autenticación' },
     { name: 'BaaS Integration', category: 'backend', level: 'intermediate', description: 'Integración con servicios BaaS' },
+    { name: 'Pandas', category: 'data-ai', level: 'intermediate', description: 'Análisis y preparación de datos' },
+    { name: 'NumPy', category: 'data-ai', level: 'intermediate', description: 'Cálculo numérico en Python' },
+    { name: 'scikit-learn', category: 'data-ai', level: 'intermediate', description: 'Modelos clásicos de Machine Learning' },
+    { name: 'PyTorch', category: 'data-ai', level: 'beginner', description: 'Primeros proyectos con redes neuronales' },
+    { name: 'JupyterLab', category: 'data-ai', level: 'intermediate', description: 'Exploración, notebooks y prototipado' },
+    { name: 'Matplotlib / Seaborn', category: 'data-ai', level: 'intermediate', description: 'Visualización de datos' },
+    { name: 'Apache Spark', category: 'big-data', level: 'beginner', description: 'Primer contacto con procesamiento distribuido' },
+    { name: 'Kafka', category: 'big-data', level: 'beginner', description: 'Conceptos y pruebas con streaming de eventos' },
+    { name: 'Airflow / NiFi', category: 'big-data', level: 'beginner', description: 'Orquestación e ingesta de datos' },
+    { name: 'S3 / MinIO', category: 'big-data', level: 'intermediate', description: 'Almacenamiento de objetos y data lakes sencillos' },
+    { name: 'AWS Data Services', category: 'big-data', level: 'beginner', description: 'Uso inicial de RDS, Athena y Glue' },
+    { name: 'Python + boto3', category: 'big-data', level: 'intermediate', description: 'Automatización de tareas cloud e infraestructura AWS' },
     { name: 'MySQL', category: 'database', level: 'intermediate' },
     { name: 'PostgreSQL', category: 'database', level: 'intermediate' },
     { name: 'SQL Server', category: 'database', level: 'intermediate' },
@@ -114,7 +126,7 @@ export class AboutMeDetails implements OnInit, AfterViewInit {
     { name: 'State Management', category: 'tools', level: 'intermediate', description: 'Gestión de estado global' },
   ];
 
-  // Formación académica - reemplazar con datos reales
+  // Formación académica
   education: Education[] = [
     {
       title: 'Inteligencia Artificial y Big Data',
@@ -123,8 +135,8 @@ export class AboutMeDetails implements OnInit, AfterViewInit {
       startYear: 2025,
       endYear: 2026,
       educationType: 'degree',
-      description: 'En curso',
-      descriptionEn: 'In progress',
+      description: 'Completado recientemente',
+      descriptionEn: 'Recently completed',
     },
     {
       title: 'Desarrollo de Aplicaciones Web',
@@ -144,7 +156,7 @@ export class AboutMeDetails implements OnInit, AfterViewInit {
     },
   ];
 
-  // Certificaciones - reemplazar con datos reales
+  // Certificaciones
   certifications: Certification[] = [
     {
       title: 'Java EE / Spring Boot',

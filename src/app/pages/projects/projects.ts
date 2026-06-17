@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ViewportScroller } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { I18nService } from '../../services/i18n.service';
 import { ProjectsDataService } from '../../services/projects-data.service';
 import { NavigationService } from '../../services/navigation.service';
 import { Project } from '../../models';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-projects',
@@ -14,14 +14,15 @@ import { Project } from '../../models';
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
 })
-export class Projects implements OnInit, AfterViewInit {
+export class Projects implements OnInit {
+  private readonly destroyRef = inject(DestroyRef);
+
   currentLanguage: string = 'es';
   projects: Project[] = [];
   loading: boolean = true;
   lastSection: string = 'top';
 
   constructor(
-    private viewportScroller: ViewportScroller,
     public i18nService: I18nService,
     private projectsDataService: ProjectsDataService,
     private navigationService: NavigationService
@@ -32,16 +33,18 @@ export class Projects implements OnInit, AfterViewInit {
 
   ngOnInit() {
     // Suscribirse a cambios de idioma
-    this.i18nService.currentLanguage$.subscribe((lang) => {
-      this.currentLanguage = lang;
-    });
+    this.i18nService.currentLanguage$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((lang) => {
+        this.currentLanguage = lang;
+      });
 
-    // Cargar repositorios desde GitHub
+    // Cargar proyectos desde datos locales
     this.loadProjects();
   }
 
   /**
-   * Cargar proyectos desde GitHub
+   * Cargar proyectos desde datos locales
    */
   loadProjects(): void {
     this.loading = true;
@@ -57,14 +60,6 @@ export class Projects implements OnInit, AfterViewInit {
       }
     });
   }
-
-  /**
-   * Se ejecuta después de que el DOM esté completamente renderizado
-   */
-  ngAfterViewInit() {
-    // El router ya hace scroll al top automáticamente
-  }
-
 
   /**
    * Obtener título del proyecto según idioma actual

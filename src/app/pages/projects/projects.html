@@ -73,13 +73,13 @@
                   </span>
                   <span>{{ 'projects.viewDetails' | translate }}</span>
                 </button>
-                <a *ngIf="project.repoUrl" [href]="project.repoUrl" target="_blank" class="button is-small is-light is-outlined mr-2">
+                <a *ngIf="project.repoUrl" [href]="project.repoUrl" target="_blank" rel="noopener noreferrer" class="button is-small is-light is-outlined mr-2">
                   <span class="icon is-small">
                     <i class="fab fa-github"></i>
                   </span>
                   <span>{{ 'projects.viewRepo' | translate }}</span>
                 </a>
-                <a *ngIf="project.demoUrl" [href]="project.demoUrl" target="_blank" class="button is-small is-primary is-outlined">
+                <a *ngIf="project.demoUrl" [href]="project.demoUrl" target="_blank" rel="noopener noreferrer" class="button is-small is-primary is-outlined">
                   <span class="icon is-small">
                     <i class="fas fa-external-link-alt"></i>
                   </span>
@@ -93,4 +93,3 @@
     </div>
   </div>
 </section>
-
