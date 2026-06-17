@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, ActivatedRoute } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
 import { Hero } from '../../components/shared/hero/hero';
+import { Contact } from '../contact/contact';
 import { TranslateModule } from '@ngx-translate/core';
 import { I18nService } from '../../services/i18n.service';
 import { ProjectsDataService } from '../../services/projects-data.service';
@@ -12,7 +13,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, RouterLink, Hero, TranslateModule],
+  imports: [CommonModule, RouterLink, Hero, Contact, TranslateModule],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

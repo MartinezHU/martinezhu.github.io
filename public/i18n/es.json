@@ -103,6 +103,32 @@
     "aboutText2": "Me interesa conectar producto, código y datos: desde interfaces y APIs hasta análisis, modelos iniciales de machine learning, pipelines de datos y scripts de automatización con Python y AWS. Siempre busco aprender con proyectos reales y criterio práctico.",
     "aboutCta": "Conocer más sobre mí"
   },
+  "contact": {
+    "kicker": "Contacto",
+    "title": "¿Hablamos?",
+    "subtitle": "Si tienes una oportunidad, una colaboración o un proyecto donde pueda aportar con desarrollo web, móvil, datos o automatización, escríbeme y te responderé lo antes posible.",
+    "form": {
+      "name": "Nombre",
+      "namePlaceholder": "Tu nombre",
+      "email": "Email",
+      "emailPlaceholder": "tu@email.com",
+      "subject": "Asunto",
+      "subjectPlaceholder": "Proyecto, colaboración, oferta...",
+      "message": "Mensaje",
+      "messagePlaceholder": "Cuéntame brevemente qué necesitas, contexto del proyecto o cómo puedo ayudarte.",
+      "submit": "Enviar mensaje"
+    },
+    "validation": {
+      "name": "Indica tu nombre.",
+      "email": "Introduce un email válido.",
+      "subject": "Añade un asunto breve.",
+      "message": "Escribe un mensaje con algo más de detalle."
+    },
+    "status": {
+      "success": "Mensaje enviado correctamente. Gracias por escribirme.",
+      "error": "No se ha podido enviar el mensaje. Inténtalo de nuevo o escríbeme por email."
+    }
+  },
   "footer": {
     "role": "Desarrollador Web, Móvil e IA",
     "rights": "© 2026 Héctor Dev. Todos los derechos reservados."

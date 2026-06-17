@@ -9,10 +9,12 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { routes } from './app.routes';
 
 class TranslateLoaderImpl implements TranslateLoader {
+  private readonly translationsVersion = '2026-06-17-contact-form';
+
   constructor(private http: HttpClient) {}
 
   getTranslation(lang: string): Observable<any> {
-    return this.http.get(`i18n/${lang}.json`);
+    return this.http.get(`i18n/${lang}.json?v=${this.translationsVersion}`);
   }
 }
 
