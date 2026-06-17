@@ -20,11 +20,16 @@
         class="button-49 is-medium m-5"
         [routerLink]="['/']"
         fragment="contact"
+        [attr.data-label]="'hero.hireCta' | translate"
         (click)="saveSection('contact')"
       >
         {{ 'hero.hireCta' | translate }}
       </a>
-      <a class="button-49 is-medium m-5" routerLink="/about-me-details">
+      <a
+        class="button-49 is-medium m-5"
+        routerLink="/about-me-details"
+        [attr.data-label]="'hero.cvCta' | translate"
+      >
         {{ 'hero.cvCta' | translate }}
       </a>
     </div>
