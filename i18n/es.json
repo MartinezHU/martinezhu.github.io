@@ -2,11 +2,13 @@
   "common": {
     "language": "Idioma",
     "spanish": "Español",
-    "english": "English"
+    "english": "English",
+    "constructionBanner": "Web en construcción",
+    "close": "Cerrar"
   },
   "about": {
     "greeting": "¡Hola! Soy",
-    "bio": "Desarrollador apasionado por crear experiencias digitales increíbles. Me especializo en desarrollo frontend con Angular y tecnologías modernas. Siempre buscando aprender nuevas tecnologías y enfrentar desafíos innovadores.",
+    "bio": "Desarrollador web y móvil con formación completada en Inteligencia Artificial y Big Data. Me gusta crear experiencias digitales útiles, trabajar con datos y automatizar procesos con Python, incluyendo scripting para tareas cloud e infraestructura en AWS.",
     "passions": "Lo que me apasiona:",
     "passion1": "Desarrollo de aplicaciones web y móviles",
     "passion2": "Diseño de interfaces intuitivas y elegantes",
@@ -23,10 +25,12 @@
     "title": "Mi Stack Tecnológico",
     "frontend": "Frontend",
     "backend": "Backend",
-    "mobile": "Mobile",
+    "mobile": "Móvil",
+    "dataAi": "Data & IA",
+    "bigDataCloud": "Big Data & Cloud",
     "database": "Bases de Datos",
     "devops": "DevOps",
-    "tools": "Tools & Others",
+    "tools": "Herramientas y otros",
     "levels": {
       "advanced": "Avanzado",
       "intermediate": "Intermedio",
@@ -87,16 +91,21 @@
       "contact": "Contacto"
     }
   },
+  "hero": {
+    "role": "Desarrollador Web, Móvil e IA",
+    "hireCta": "Contrátame",
+    "cvCta": "Ver CV"
+  },
   "home": {
     "aboutTitlePrefix": "Sobre",
     "aboutTitleHighlight": "mí",
-    "aboutText1": "Soy un desarrollador apasionado por crear experiencias digitales excepcionales. Con experiencia en desarrollo web y móvil, me especializo en tecnologías modernas como Angular, React y más.",
-    "aboutText2": "Me encanta resolver problemas complejos, aprender nuevas tecnologías y trabajar en proyectos que marquen la diferencia. Siempre en búsqueda de nuevos desafíos y oportunidades para crecer profesionalmente.",
+    "aboutText1": "Soy un desarrollador centrado en crear experiencias digitales útiles y bien construidas. Trabajo con tecnologías web y móviles, y he completado formación en Inteligencia Artificial y Big Data.",
+    "aboutText2": "Me interesa conectar producto, código y datos: desde interfaces y APIs hasta análisis, modelos iniciales de machine learning, pipelines de datos y scripts de automatización con Python y AWS. Siempre busco aprender con proyectos reales y criterio práctico.",
     "aboutCta": "Conocer más sobre mí"
   },
   "footer": {
-    "role": "Desarrollador Web & Móvil",
-    "rights": "© 2025 Héctor Dev. Todos los derechos reservados."
+    "role": "Desarrollador Web, Móvil e IA",
+    "rights": "© 2026 Héctor Dev. Todos los derechos reservados."
   },
   "projects": {
     "title": "Mis Proyectos",

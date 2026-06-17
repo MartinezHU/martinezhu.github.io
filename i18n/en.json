@@ -2,11 +2,13 @@
   "common": {
     "language": "Language",
     "spanish": "Español",
-    "english": "English"
+    "english": "English",
+    "constructionBanner": "Website under construction",
+    "close": "Close"
   },
   "about": {
     "greeting": "Hello! I'm",
-    "bio": "Passionate developer dedicated to creating incredible digital experiences. I specialize in frontend development with Angular and modern technologies. Always looking to learn new technologies and face innovative challenges.",
+    "bio": "Web and mobile developer with completed training in Artificial Intelligence and Big Data. I enjoy building useful digital experiences, working with data, and automating processes with Python, including scripting for cloud tasks and AWS infrastructure.",
     "passions": "What I'm passionate about:",
     "passion1": "Development of web and mobile applications",
     "passion2": "Design of intuitive and elegant interfaces",
@@ -24,6 +26,8 @@
     "frontend": "Frontend",
     "backend": "Backend",
     "mobile": "Mobile",
+    "dataAi": "Data & AI",
+    "bigDataCloud": "Big Data & Cloud",
     "database": "Databases",
     "devops": "DevOps",
     "tools": "Tools & Others",
@@ -87,16 +91,21 @@
       "contact": "Contact"
     }
   },
+  "hero": {
+    "role": "Web, Mobile & AI Developer",
+    "hireCta": "Hire me",
+    "cvCta": "View resume"
+  },
   "home": {
     "aboutTitlePrefix": "About",
     "aboutTitleHighlight": "me",
-    "aboutText1": "I'm a passionate developer focused on creating exceptional digital experiences. With experience in web and mobile development, I specialize in modern technologies like Angular, React, and more.",
-    "aboutText2": "I love solving complex problems, learning new technologies, and working on projects that make a difference. Always looking for new challenges and opportunities to grow professionally.",
+    "aboutText1": "I'm a developer focused on building useful, well-crafted digital experiences. I work with web and mobile technologies, and I have completed training in Artificial Intelligence and Big Data.",
+    "aboutText2": "I'm interested in connecting product, code, and data: from interfaces and APIs to analysis, entry-level machine learning models, data pipelines, and automation scripts with Python and AWS. I keep learning through real projects and practical judgment.",
     "aboutCta": "Learn more about me"
   },
   "footer": {
-    "role": "Web & Mobile Developer",
-    "rights": "© 2025 Héctor Dev. All rights reserved."
+    "role": "Web, Mobile & AI Developer",
+    "rights": "© 2026 Héctor Dev. All rights reserved."
   },
   "projects": {
     "title": "My Projects",

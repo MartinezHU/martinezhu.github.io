@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1272093819,
+    "name": "tourism-climate-forecasting-ml",
+    "full_name": "MartinezHU/tourism-climate-forecasting-ml",
+    "url": "https://github.com/MartinezHU/tourism-climate-forecasting-ml",
+    "demo_url": "https://huggingface.co/spaces/HMartinezC/tourism-weather-demo",
+    "description": "Proyecto de Machine Learning para analizar y predecir relaciones entre turismo y clima.",
+    "languages": [
+      { "name": "Jupyter Notebook", "percent": 91.5 },
+      { "name": "Python", "percent": 8.5 }
+    ],
+    "why_interesting": "Proyecto alineado con IA y Big Data que combina análisis de datos, notebooks y modelos predictivos aplicados a un caso turístico-climático.",
+    "tags": ["data-ai", "machine-learning", "python", "notebooks", "forecasting"]
+  },
+  {
+    "id": 1120070120,
+    "name": "Scootergy",
+    "full_name": "MartinezHU/Scootergy",
+    "url": "https://github.com/MartinezHU/Scootergy",
+    "description": "Proyecto full-stack para gestión de servicios de movilidad eléctrica.",
+    "languages": [
+      { "name": "TypeScript", "percent": 49.8 },
+      { "name": "Python", "percent": 23.9 },
+      { "name": "HTML", "percent": 23 },
+      { "name": "SCSS", "percent": 3.3 }
+    ],
+    "why_interesting": "Proyecto integrado de DAW con enfoque de producto, combinando frontend, backend y una problemática real de movilidad.",
+    "tags": ["fullstack", "product", "typescript", "python", "frontend"]
+  },
+  {
+    "id": 926019441,
+    "name": "api_auth",
+    "full_name": "MartinezHU/api_auth",
+    "url": "https://github.com/MartinezHU/api_auth",
+    "description": "API de autenticación centralizada para proyectos personales con múltiples métodos según el cliente.",
+    "languages": [
+      { "name": "Python", "percent": 100 }
+    ],
+    "why_interesting": "Servicio backend desplegado en PythonAnywhere para centralizar autenticación y reutilizar seguridad entre aplicaciones.",
+    "tags": ["backend", "auth", "deployment", "python", "security"]
+  },
+  {
+    "id": 935455574,
+    "name": "api_blog",
+    "full_name": "MartinezHU/api_blog",
+    "url": "https://github.com/MartinezHU/api_blog",
+    "description": "API RESTful para blog personal implementada con .NET, Clean Architecture y CQRS.",
+    "languages": [
+      { "name": "C#", "percent": 100 }
+    ],
+    "why_interesting": "Backend en .NET centrado en separación de responsabilidades, mantenibilidad y patrones de arquitectura limpia.",
+    "tags": ["backend", "csharp", "clean-architecture", "cqrs", "api"]
+  },
+  {
+    "id": 944940910,
+    "name": "app_blog_vue",
+    "full_name": "MartinezHU/app_blog_vue",
+    "url": "https://github.com/MartinezHU/app_blog_vue",
+    "description": "Aplicación SPA de blog desarrollada con Vue.js y TypeScript.",
+    "languages": [
+      { "name": "Vue", "percent": 72.9 },
+      { "name": "TypeScript", "percent": 22.4 },
+      { "name": "SCSS", "percent": 4 },
+      { "name": "HTML", "percent": 0.7 }
+    ],
+    "why_interesting": "Frontend moderno con Vue 3 y TypeScript que muestra capacidad de construir interfaces SPA fuera del ecosistema Angular.",
+    "tags": ["frontend", "vue", "typescript", "spa", "ui"]
+  },
+  {
+    "id": 1004002314,
+    "name": "feather",
+    "full_name": "MartinezHU/feather",
+    "url": "https://github.com/MartinezHU/feather",
+    "description": "Base modular y escalable para aplicaciones Flutter modernas.",
+    "languages": [
+      { "name": "Dart", "percent": 100 }
+    ],
+    "why_interesting": "Starter kit móvil con arquitectura limpia, Riverpod, Freezed, go_router, i18n, temas dinámicos, autenticación base, Firebase/Supabase y estructura preparada para crecer.",
+    "tags": ["mobile", "flutter", "dart", "riverpod", "architecture", "firebase", "starter-kit"]
+  }
+]
