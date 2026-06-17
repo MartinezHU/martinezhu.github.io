@@ -5,7 +5,7 @@ import { ViewportScroller } from '@angular/common';
 import { Hero } from '../../components/shared/hero/hero';
 import { TranslateModule } from '@ngx-translate/core';
 import { I18nService } from '../../services/i18n.service';
-import { GitHubService } from '../../services/github.service';
+import { ProjectsDataService } from '../../services/projects-data.service';
 import { NavigationService } from '../../services/navigation.service';
 import { Project } from '../../models';
 
@@ -21,7 +21,7 @@ export class Home implements OnInit {
 
   constructor(
     public i18nService: I18nService,
-    private githubService: GitHubService,
+    private projectsDataService: ProjectsDataService,
     private navigationService: NavigationService,
     private route: ActivatedRoute,
     private viewportScroller: ViewportScroller
@@ -48,7 +48,7 @@ export class Home implements OnInit {
     });
 
     // Cargar proyectos destacados desde GitHub
-    this.githubService.getRepos().subscribe({
+    this.projectsDataService.getProjects().subscribe({
       next: (allProjects) => {
         // Mostrar solo los primeros 3 proyectos destacados
         this.projects = allProjects.filter(p => p.featured).slice(0, 3);

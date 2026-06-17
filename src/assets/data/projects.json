@@ -1,0 +1,132 @@
+[
+  {
+    "id": 926019441,
+    "name": "APIAuth",
+    "full_name": "MartinezHU/APIAuth",
+    "url": "https://github.com/MartinezHU/APIAuth",
+    "description": "API de autenticación centralizada para proyectos personales con múltiples métodos de autenticación según el cliente.",
+    "languages": [
+      { "name": "Python", "percent": 100 }
+    ],
+    "why_interesting": "Sistema de autenticación centralizado desplegado en PythonAnywhere que gestiona la seguridad de múltiples aplicaciones.",
+    "tags": ["backend", "auth", "deployment", "python", "security"]
+  },
+  {
+    "id": 935455574,
+    "name": "api_blog",
+    "full_name": "MartinezHU/api_blog",
+    "url": "https://github.com/MartinezHU/api_blog",
+    "description": "API RESTful para blog personal implementada con .NET y Clean Architecture.",
+    "languages": [
+      { "name": "C#", "percent": 100 }
+    ],
+    "why_interesting": "Implementación de Clean Architecture y CQRS en .NET, enfocada en separación de responsabilidades y mantenibilidad.",
+    "tags": ["backend", "csharp", "clean-architecture", "cqrs", "api"]
+  },
+  {
+    "id": 944940910,
+    "name": "app_blog_vue",
+    "full_name": "MartinezHU/app_blog_vue",
+    "url": "https://github.com/MartinezHU/app_blog_vue",
+    "description": "Aplicación SPA de blog desarrollada con Vue.js y TypeScript.",
+    "languages": [
+      { "name": "Vue", "percent": 72.9 },
+      { "name": "TypeScript", "percent": 22.4 },
+      { "name": "SCSS", "percent": 4 },
+      { "name": "HTML", "percent": 0.7 }
+    ],
+    "why_interesting": "Frontend moderno con Vue 3 y TypeScript que consume la API de blog, implementando un diseño responsive y componentes reutilizables.",
+    "tags": ["frontend", "vue", "typescript", "spa", "ui"]
+  },
+  {
+    "id": 1003223087,
+    "name": "app_expaio",
+    "full_name": "MartinezHU/app_expaio",
+    "url": "https://github.com/MartinezHU/app_expaio",
+    "description": "Aplicación móvil multiplataforma para ayudar en procesos de emigración.",
+    "languages": [
+      { "name": "Dart", "percent": 98 },
+      { "name": "Kotlin", "percent": 2 }
+    ],
+    "why_interesting": "App móvil desarrollada con Flutter que facilita información y gestión de trámites para personas en proceso de emigración.",
+    "tags": ["mobile", "flutter", "dart", "product"]
+  },
+  {
+    "id": 999853503,
+    "name": "decks_app",
+    "full_name": "MartinezHU/decks_app",
+    "url": "https://github.com/MartinezHU/decks_app",
+    "description": "Aplicación móvil para gestión de mazos de cartas o contenido educativo.",
+    "languages": [
+      { "name": "Dart", "percent": 99.3 },
+      { "name": "Kotlin", "percent": 0.7 }
+    ],
+    "why_interesting": "App multiplataforma con Flutter que permite organizar y estudiar contenido mediante tarjetas digitales.",
+    "tags": ["mobile", "flutter", "dart", "ux"]
+  },
+  {
+    "id": 840504902,
+    "name": "Angular_16",
+    "full_name": "MartinezHU/Angular_16",
+    "url": "https://github.com/MartinezHU/Angular_16",
+    "description": "Plantilla base de Angular 16 con NgRx, Effects y Material Design preconfigurados.",
+    "languages": [
+      { "name": "TypeScript", "percent": 80.4 },
+      { "name": "HTML", "percent": 17.5 },
+      { "name": "SCSS", "percent": 2.1 }
+    ],
+    "why_interesting": "Skeleton profesional para proyectos Angular con gestión de estado NgRx y componentes Material, listo para desarrollo empresarial.",
+    "tags": ["frontend", "angular", "ngrx", "typescript", "material"]
+  },
+  {
+    "id": 808486040,
+    "name": "API_RedSocial",
+    "full_name": "MartinezHU/API_RedSocial",
+    "url": "https://github.com/MartinezHU/API_RedSocial",
+    "description": "Backend de red social con autenticación JWT y funcionalidades sociales completas.",
+    "languages": [
+      { "name": "Python", "percent": 100 }
+    ],
+    "why_interesting": "API RESTful con Django REST Framework que incluye sistema de autenticación JWT, publicaciones, seguimiento y mensajería.",
+    "tags": ["backend", "drf", "jwt", "python", "api"]
+  },
+  {
+    "id": 1149141560,
+    "name": "scootergy_v2",
+    "full_name": "MartinezHU/scootergy_v2",
+    "url": "https://github.com/MartinezHU/scootergy_v2",
+    "description": "Plataforma full-stack para gestión de servicios de movilidad eléctrica.",
+    "languages": [
+      { "name": "HTML", "percent": 65.4 },
+      { "name": "Python", "percent": 29.3 },
+      { "name": "TypeScript", "percent": 5 },
+      { "name": "CSS", "percent": 0.3 }
+    ],
+    "why_interesting": "Sistema completo con frontend y backend integrados para la gestión de flotas y alquiler de vehículos de movilidad eléctrica.",
+    "tags": ["fullstack", "product", "python", "frontend"]
+  },
+  {
+    "id": 935711997,
+    "name": "discord_music_bot",
+    "full_name": "MartinezHU/discord_music_bot",
+    "url": "https://github.com/MartinezHU/discord_music_bot",
+    "description": "Bot de Discord para reproducción de música en servidores.",
+    "languages": [
+      { "name": "JavaScript", "percent": 100 }
+    ],
+    "why_interesting": "Bot desarrollado en JavaScript que integra APIs de música para ofrecer funcionalidades de reproducción en Discord.",
+    "tags": ["side-project", "bot", "javascript", "fun"]
+  },
+  {
+    "id": 840733218,
+    "name": "videos_app_drf",
+    "full_name": "MartinezHU/videos_app_drf",
+    "url": "https://github.com/MartinezHU/videos_app_drf",
+    "description": "API de gestión de contenido multimedia desarrollada con Django REST Framework.",
+    "languages": [
+      { "name": "Python", "percent": 100 }
+    ],
+    "why_interesting": "Backend especializado en gestión, almacenamiento y streaming de contenido de video con Django REST Framework.",
+    "tags": ["backend", "drf", "python", "api"]
+  }
+]
